@@ -33,7 +33,7 @@ export async function readableStreamToArrayBuffer(
  * @group ReadableStream
  */
 export async function readableStreamToBlob(
-  readableStream: ReadableStream<Uint8Array>,
+  readableStream: ReadableStream,
   options?: BlobPropertyBag,
 ): Promise<Blob> {
   assertReadableStream(readableStream);
@@ -54,7 +54,7 @@ export async function readableStreamToBlob(
  * @group ReadableStream
  */
 export async function readableStreamToDataView(
-  readableStream: ReadableStream<Uint8Array>,
+  readableStream: ReadableStream,
 ): Promise<DataView> {
   // assertReadableStream(readableStream);
   return new DataView(await readableStreamToArrayBuffer(readableStream));
@@ -65,7 +65,7 @@ export async function readableStreamToDataView(
  * @group ReadableStream
  */
 export async function readableStreamToNumberArray(
-  readableStream: ReadableStream<Uint8Array>,
+  readableStream: ReadableStream,
 ): Promise<number[]> {
   // assertReadableStream(readableStream);
   return [...(await readableStreamToUint8Array(readableStream))];
@@ -76,7 +76,7 @@ export async function readableStreamToNumberArray(
  * @group ReadableStream
  */
 export async function readableStreamToString(
-  readableStream: ReadableStream<Uint8Array>,
+  readableStream: ReadableStream,
 ): Promise<string> {
   // assertReadableStream(readableStream);
   const blob = await readableStreamToBlob(readableStream);
@@ -88,7 +88,7 @@ export async function readableStreamToString(
  * @group ReadableStream
  */
 export async function readableStreamToUint8Array(
-  readableStream: ReadableStream<Uint8Array>,
+  readableStream: ReadableStream,
 ): Promise<Uint8Array> {
   // assertReadableStream(readableStream);
   const arrayBuffer = await readableStreamToArrayBuffer(readableStream);
