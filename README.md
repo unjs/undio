@@ -7,25 +7,22 @@
 
 <!-- /automd -->
 
-⇔ Conventionally and Safely convert between various JavaScript data types:
+⇔ Conventionally and safely convert between various JavaScript data types:
 
-👍 [ArrayBuffer][ArrayBuffer]
-👍 [Blob][Blob]
-👍 [DataView][DataView]
-👍 [Number Array][Number Array]
-👍[ReadableStream](ReadableStream)
-👍 [String][String]
-👍 [Uint8Array][Uint8Array]
+👍 [ArrayBuffer][ArrayBuffer] <br>
+👍 [Blob][Blob] <br>
+👍 [DataView][DataView] <br>
+👍 [Number Array][Number Array] <br>
+👍[ReadableStream](ReadableStream) <br>
+👍 [String][String] <br>
+👍 [Uint8Array][Uint8Array] <br>
 
 And enjoy...
 
-✅ Type-safe usage.
-
-✅ Runtime type safety assertions.
-
-✅ Auto type detection and convertors.
-
-✅ Tree-shakable and compact build.
+✅ Type-safe usage <br>
+✅ Runtime-type safety assertion <br>
+✅ Auto type detection and conversion <br>
+✅ Tree-shakable and compact build <br>
 
 ## Usage
 
@@ -81,7 +78,7 @@ import {} from "https://esm.sh/undio";
 You can use `is*(input)` ans `assert*(input)` utils to validate input type.
 
 > [!NOTE]
-> All convert utils by default use assertion for runtime type safety and you don't need to manually do this.
+> All conversion utilities use assertions for runtime type safety by default, so you don't need to manually do this.
 
 **Example:**
 
@@ -98,14 +95,14 @@ assertArrayBuffer(value); // Throws an error if value is not ArrayBuffer
 
 ## Auto Convert
 
-Undio automatically detects input type and uses the proper method to convert it to expected type.
+Undio automatically detects the input type and uses the proper method to convert it to the expected type.
 
 **Example:**
 
 ```ts
 import { detectType, toString, toReadableStream } from "undio";
 
-// Convert any supported type (auto detected)
+// Convert any supported type (auto-detected)
 const string = await toString(value);
 const stream = await toReadableStream(value);
 
@@ -117,7 +114,7 @@ const type = detectType(value);
 > Because of stream support, the return type can be a promise. Always make sure to use an `await` before them.
 
 > [!NOTE]
-> Alternatively you can use low level `*To*(value)` utils to explicitly convert from one type to another. See [all utils](#all-utils) section.
+> Alternatively you can use low-level `*To*(value)` utils to explicitly convert from one type to another. See [all utils](#all-utils) section.
 
 ## All utils
 
@@ -418,7 +415,7 @@ Convert from [Uint8Array][Uint8Array] to [String][String]
 <summary>local development</summary>
 
 - Clone this repository
-- Install latest LTS version of [Node.js](https://nodejs.org/en/)
+- Install the latest LTS version of [Node.js](https://nodejs.org/en/)
 - Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable`
 - Install dependencies using `pnpm install`
 - Run interactive tests using `pnpm dev`
