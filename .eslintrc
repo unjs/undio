@@ -1,0 +1,6 @@
+{
+  "extends": ["eslint-config-unjs"],
+  "rules": {
+    "no-sequences": 0,
+  },
+}

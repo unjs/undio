@@ -1,0 +1,101 @@
+import { DataType } from "../types";
+import { assertType, ConvertMap, convertTo } from "./_utils";
+
+/**
+ * Test if input is instance of [DataView][DataView] and return `true` or `false`.
+ * @group DataView
+ */
+export function isDataView(input: any): input is DataView {
+  return input instanceof DataView;
+}
+
+/**
+ * Assert that input is instance of [DataView][DataView] or throw a `TypeError`.
+ * @group DataView
+ */
+export const assertDataView = (input: unknown) =>
+  assertType("DataView", input, isDataView);
+
+/**
+ * Convert from [DataView][DataView] to [ArrayBuffer][ArrayBuffer]
+ * @group DataView
+ */
+export function dataViewToArrayBuffer(dataView: DataView): ArrayBuffer {
+  return dataView.buffer;
+}
+
+/**
+ * Convert from [DataView][DataView] to [Blob][Blob]
+ * @group DataView
+ */
+export function dataViewToBlob(
+  dataView: DataView,
+  options?: BlobPropertyBag,
+): Blob {
+  assertDataView(dataView);
+  return new Blob([dataView.buffer], options);
+}
+
+/**
+ * Convert from [DataView][DataView] to [Number Array][Number Array]
+ * @group DataView
+ */
+export function dataViewToNumberArray(dataView: DataView): number[] {
+  assertDataView(dataView);
+  return [...new Uint8Array(dataView.buffer)];
+}
+
+/**
+ * Convert from [DataView][DataView] to [ReadableStream][ReadableStream]
+ * @group DataView
+ */
+export function dataViewToReadableStream(
+  dataView: DataView,
+): ReadableStream<Uint8Array> {
+  assertDataView(dataView);
+  return new ReadableStream({
+    start(controller) {
+      controller.enqueue(new Uint8Array(dataView.buffer));
+      controller.close();
+    },
+  });
+}
+
+/**
+ * Convert from [DataView][DataView] to [String][String]
+ * @group DataView
+ */
+export function dataViewToString(dataView: DataView): string {
+  assertDataView(dataView);
+  return new TextDecoder().decode(dataView);
+}
+
+/**
+ * Convert from [DataView][DataView] to [Uint8Array][Uint8Array]
+ * @group DataView
+ */
+export function dataViewToUint8Array(dataView: DataView): Uint8Array {
+  assertDataView(dataView);
+  return new Uint8Array(
+    dataView.buffer,
+    dataView.byteOffset,
+    dataView.byteLength,
+  );
+}
+
+const _convertMap: ConvertMap<DataView> = {
+  ArrayBuffer: dataViewToArrayBuffer,
+  Blob: dataViewToBlob,
+  DataView: (input) => input,
+  NumberArray: dataViewToNumberArray,
+  ReadableStream: dataViewToReadableStream,
+  String: dataViewToString,
+  Uint8Array: dataViewToUint8Array,
+} as const;
+
+/**
+ * Convert from any value to [DataView][DataView]
+ * @group DataView
+ */
+export const toDataView = (input: DataType) =>
+  convertTo<DataView>("DataView", input, _convertMap);
