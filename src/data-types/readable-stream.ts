@@ -2,7 +2,7 @@ import { DataType } from "../types";
 import { assertType, ConvertMap, convertTo } from "./_utils";
 
 /**
- * Test if input is instance of [ReadableStream][ReadableStream] and return `true` or `false`.
+ * Test if input is an instance of [ReadableStream][ReadableStream] and return `true` or `false`.
  * @group ReadableStream
  */
 export function isReadableStream(input: any): input is ReadableStream {
@@ -10,7 +10,7 @@ export function isReadableStream(input: any): input is ReadableStream {
 }
 
 /**
- * Assert that input is instance of [ReadableStream][ReadableStream] or throw a `TypeError`.
+ * Assert that input is an instance of [ReadableStream][ReadableStream] or throw a `TypeError`.
  * @group ReadableStream
  */
 export const assertReadableStream = (input: unknown) =>

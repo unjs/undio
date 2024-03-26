@@ -2,7 +2,7 @@ import { DataType } from "../types";
 import { assertType, ConvertMap, convertTo } from "./_utils";
 
 /**
- * Test if input is instance of [Number Array][Number Array] and return `true` or `false`.
+ * Test if input is an instance of [Number Array][Number Array] and return `true` or `false`.
  * @group NumberArray
  */
 export function isNumberArray(input: any): input is number[] {
@@ -12,7 +12,7 @@ export function isNumberArray(input: any): input is number[] {
 }
 
 /**
- * Assert that input is instance of [Number Array][Number Array] or throw a `TypeError`.
+ * Assert that input is an instance of [Number Array][Number Array] or throw a `TypeError`.
  * @group NumberArray
  */
 export const assertNumberArray = (input: unknown) =>

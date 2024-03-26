@@ -2,7 +2,7 @@ import { DataType } from "../types";
 import { assertType, ConvertMap, convertTo } from "./_utils";
 
 /**
- * Test if input is instance of [Blob][Blob] and return `true` or `false`.
+ * Test if input is an instance of [Blob][Blob] and return `true` or `false`.
  * @group Blob
  */
 export function isBlob(input: any): input is Blob {
@@ -10,7 +10,7 @@ export function isBlob(input: any): input is Blob {
 }
 
 /**
- * Assert that input is instance of [Blob][Blob] or throw a `TypeError`.
+ * Assert that input is an instance of [Blob][Blob] or throw a `TypeError`.
  * @group Blob
  */
 export const assertBlob = (input: unknown) => assertType("Blob", input, isBlob);

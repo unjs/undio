@@ -54,7 +54,7 @@ bun install undio
 
 Import:
 
-<!-- automd:jsimport cjs cdn imports -->
+<!-- automd:jsimport cjs cdn imports="" -->
 
 **ESM** (Node.js, Bun)
 
@@ -76,8 +76,6 @@ import {} from "https://esm.sh/undio";
 
 <!-- /automd -->
 
-<!-- automd:jsdocs src="./src/index.ts" -->
-
 ## Runtime type checking utils
 
 You can use `is*(input)` ans `assert*(input)` utils to validate input type.
@@ -98,9 +96,9 @@ assertArrayBuffer(value); // Throws an error if value is not ArrayBuffer
 // do something
 ```
 
-## Auto Convert utils
+## Auto Convert
 
-You can either use explicit `*To*(value)` utils (see next sections) or use auto detection.
+You can either use explicit `*To*(value)` utils (see "all utils" section) or use auto detection.
 
 **Example:**
 
@@ -113,6 +111,14 @@ const type = detectType(value);
 // Convert any supported type (auto detected)
 const value = await toString(value);
 ```
+
+## All utils
+
+<details>
+
+<summary>See all utils</summary>
+
+<!-- automd:jsdocs src="./src/index.ts" -->
 
 ## Array Buffer
 
@@ -142,17 +148,21 @@ Convert from [ArrayBuffer][ArrayBuffer] to [Uint8Array][Uint8Array]
 
 ### `assertArrayBuffer(input)`
 
-Assert that input is instance of [ArrayBuffer][ArrayBuffer] or throw a `TypeError`.
+Assert that input is an instance of [ArrayBuffer][ArrayBuffer] or throw a `TypeError`.
 
 ### `isArrayBuffer(input)`
 
-Test if input is instance of [ArrayBuffer][ArrayBuffer] and return `true` or `false`.
+Test if input is an instance of [ArrayBuffer][ArrayBuffer] and return `true` or `false`.
+
+### `toArrayBuffer(input)`
+
+Convert from any value to [ArrayBuffer][ArrayBuffer]
 
 ## Blob
 
 ### `assertBlob(input)`
 
-Assert that input is instance of [Blob][Blob] or throw a `TypeError`.
+Assert that input is an instance of [Blob][Blob] or throw a `TypeError`.
 
 ### `blobToArrayBuffer(blob)`
 
@@ -180,13 +190,17 @@ Convert from [Blob][Blob] to [Uint8Array][Uint8Array]
 
 ### `isBlob(input)`
 
-Test if input is instance of [Blob][Blob] and return `true` or `false`.
+Test if input is an instance of [Blob][Blob] and return `true` or `false`.
+
+### `toBlob(input)`
+
+Convert from any value to [Blob][Blob]
 
 ## Data View
 
 ### `assertDataView(input)`
 
-Assert that input is instance of [DataView][DataView] or throw a `TypeError`.
+Assert that input is an instance of [DataView][DataView] or throw a `TypeError`.
 
 ### `dataViewToArrayBuffer(dataView)`
 
@@ -214,17 +228,27 @@ Convert from [DataView][DataView] to [Uint8Array][Uint8Array]
 
 ### `isDataView(input)`
 
-Test if input is instance of [DataView][DataView] and return `true` or `false`.
+Test if input is an instance of [DataView][DataView] and return `true` or `false`.
+
+### `toDataView(input)`
+
+Convert from any value to [DataView][DataView]
+
+## Number Array
+
+### `tonumberArray(input)`
+
+Convert from any value to [numberArray][numberArray]
 
 ## Number Array
 
 ### `assertNumberArray(input)`
 
-Assert that input is instance of [Number Array][Number Array] or throw a `TypeError`.
+Assert that input is an instance of [Number Array][Number Array] or throw a `TypeError`.
 
 ### `isNumberArray(input)`
 
-Test if input is instance of [Number Array][Number Array] and return `true` or `false`.
+Test if input is an instance of [Number Array][Number Array] and return `true` or `false`.
 
 ### `numberArrayToArrayBuffer(numberArray)`
 
@@ -252,13 +276,19 @@ Convert from [Number Array][Number Array] to [Uint8Array][Uint8Array]
 
 ## Readable Stream
 
+### `toreadableStream(input)`
+
+Convert from any value to [readableStream][readableStream]
+
+## Readable Stream
+
 ### `assertReadableStream(input)`
 
-Assert that input is instance of [ReadableStream][ReadableStream] or throw a `TypeError`.
+Assert that input is an instance of [ReadableStream][ReadableStream] or throw a `TypeError`.
 
 ### `isReadableStream(input)`
 
-Test if input is instance of [ReadableStream][ReadableStream] and return `true` or `false`.
+Test if input is an instance of [ReadableStream][ReadableStream] and return `true` or `false`.
 
 ### `readableStreamToArrayBuffer(readableStream)`
 
@@ -288,11 +318,11 @@ Convert from [ReadableStream][ReadableStream] to [Uint8Array][Uint8Array]
 
 ### `assertString(input)`
 
-Assert that input is instance of [String][String] or throw a `TypeError`.
+Assert that input is an instance of [String][String] or throw a `TypeError`.
 
 ### `isString(input)`
 
-Test if input is instance of [String][String] and return `true` or `false`.
+Test if input is an instance of [String][String] and return `true` or `false`.
 
 ### `stringToArrayBuffer(string)`
 
@@ -322,11 +352,17 @@ Convert from [string][string] to [Uint8Array][Uint8Array]
 
 ### `assertUint8Array(input)`
 
-Assert that input is instance of [Uint8Array][Uint8Array] or throw a `TypeError`.
+Assert that input is an instance of [Uint8Array][Uint8Array] or throw a `TypeError`.
 
 ### `isUint8Array(input)`
 
-Test if input is instance of [Uint8Array][Uint8Array] and return `true` or `false`.
+Test if input is an instance of [Uint8Array][Uint8Array] and return `true` or `false`.
+
+### `toUint8Array(input)`
+
+Convert from any value to [Uint8Array][Uint8Array]
+
+### `detectType(input)`
 
 ### `uint8ArrayToArrayBuffer(uint8Array)`
 
@@ -365,6 +401,8 @@ Convert from [Uint8Array][Uint8Array] to [String][String]
 @group Uint8Array
 
 <!-- /automd -->
+
+</details>
 
 ## Development
 

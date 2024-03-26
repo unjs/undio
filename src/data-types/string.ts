@@ -2,7 +2,7 @@ import { DataType } from "../types";
 import { assertType, ConvertMap, convertTo } from "./_utils";
 
 /**
- * Test if input is instance of [String][String] and return `true` or `false`.
+ * Test if input is an instance of [String][String] and return `true` or `false`.
  * @group String
  */
 export function isString(input: any): input is string {
@@ -10,7 +10,7 @@ export function isString(input: any): input is string {
 }
 
 /**
- * Assert that input is instance of [String][String] or throw a `TypeError`.
+ * Assert that input is an instance of [String][String] or throw a `TypeError`.
  * @group String
  */
 export const assertString = (input: unknown) =>

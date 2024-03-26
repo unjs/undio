@@ -2,7 +2,7 @@ import { DataType } from "../types";
 import { ConvertMap, assertType, convertTo } from "./_utils";
 
 /**
- * Test if input is instance of [ArrayBuffer][ArrayBuffer] and return `true` or `false`.
+ * Test if input is an instance of [ArrayBuffer][ArrayBuffer] and return `true` or `false`.
  * @group ArrayBuffer
  */
 export function isArrayBuffer(input: unknown): input is ArrayBuffer {
@@ -10,7 +10,7 @@ export function isArrayBuffer(input: unknown): input is ArrayBuffer {
 }
 
 /**
- * Assert that input is instance of [ArrayBuffer][ArrayBuffer] or throw a `TypeError`.
+ * Assert that input is an instance of [ArrayBuffer][ArrayBuffer] or throw a `TypeError`.
  * @group ArrayBuffer
  */
 export const assertArrayBuffer = (input: unknown) =>

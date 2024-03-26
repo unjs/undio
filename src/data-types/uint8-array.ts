@@ -2,7 +2,7 @@ import { DataType } from "../types";
 import { assertType, ConvertMap, convertTo } from "./_utils";
 
 /**
- * Test if input is instance of [Uint8Array][Uint8Array] and return `true` or `false`.
+ * Test if input is an instance of [Uint8Array][Uint8Array] and return `true` or `false`.
  * @group Uint8Array
  */
 export function isUint8Array(input: any): input is Uint8Array {
@@ -10,7 +10,7 @@ export function isUint8Array(input: any): input is Uint8Array {
 }
 
 /**
- * Assert that input is instance of [Uint8Array][Uint8Array] or throw a `TypeError`.
+ * Assert that input is an instance of [Uint8Array][Uint8Array] or throw a `TypeError`.
  * @group Uint8Array
  */
 export const assertUint8Array = (input: unknown) =>
