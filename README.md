@@ -9,13 +9,13 @@
 
 ⇔ Conventionally and Safely convert between various JavaScript data types:
 
-- [ArrayBuffer][ArrayBuffer]
-- [Blob][Blob]
-- [DataView][DataView]
-- [Number Array][Number Array]
-- [ReadableStream](ReadableStream)
-- [String][String]
-- [Uint8Array][Uint8Array]
+👍 [ArrayBuffer][ArrayBuffer]
+👍 [Blob][Blob]
+👍 [DataView][DataView]
+👍 [Number Array][Number Array]
+👍[ReadableStream](ReadableStream)
+👍 [String][String]
+👍 [Uint8Array][Uint8Array]
 
 And enjoy...
 
@@ -98,19 +98,26 @@ assertArrayBuffer(value); // Throws an error if value is not ArrayBuffer
 
 ## Auto Convert
 
-You can either use explicit `*To*(value)` utils (see "all utils" section) or use auto detection.
+Undio automatically detects input type and uses the proper method to convert it to expected type.
 
 **Example:**
 
 ```ts
-import { detectType, toString } from "undio";
+import { detectType, toString, toReadableStream } from "undio";
+
+// Convert any supported type (auto detected)
+const string = await toString(value);
+const stream = await toReadableStream(value);
 
 // "ArrayBuffer" | "Blob"| "DataView" | "NumberArray" | "ReadableStream" | "String" | "Uint8Array";
 const type = detectType(value);
-
-// Convert any supported type (auto detected)
-const value = await toString(value);
 ```
+
+> [!NOTE]
+> Because of stream support, the return type can be a promise. Always make sure to use an `await` before them.
+
+> [!NOTE]
+> Alternatively you can use low level `*To*(value)` utils to explicitly convert from one type to another. See [all utils](#all-utils) section.
 
 ## All utils
 
