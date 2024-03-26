@@ -7,22 +7,31 @@
 
 <!-- /automd -->
 
-⇔ Conventionally and safely convert between various JavaScript data types:
+⇔ Conventionally and safely convert between various JavaScript data types.
 
-👍 [ArrayBuffer][ArrayBuffer] <br>
-👍 [Blob][Blob] <br>
-👍 [DataView][DataView] <br>
-👍 [Number Array][Number Array] <br>
-👍[ReadableStream](ReadableStream) <br>
-👍 [String][String] <br>
-👍 [Uint8Array][Uint8Array] <br>
-
-And enjoy...
-
+<table border="0">
+ <tr>
+    <td>Supported Types</td>
+    <td>Features</b></td>
+ </tr>
+ <tr style="vertical-align: top;">
+    <td>
+👍 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer">ArrayBuffer</a><br>
+👍 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Blob">Blob</a><br>
+👍 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView">DataView</a><br>
+👍 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Number Array]</a><br>
+👍 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReadableStream">ReadableStream</a><br>
+👍 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">BStringlob</a><br>
+👍 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array">Uint8Array</a><br>
+    </td>
+    <td>
 ✅ Type-safe usage <br>
 ✅ Runtime-type safety assertion <br>
 ✅ Auto type detection and conversion <br>
 ✅ Tree-shakable and compact build <br>
+    </td>
+ </tr>
+</table>
 
 ## Usage
 
@@ -73,26 +82,6 @@ import {} from "https://esm.sh/undio";
 
 <!-- /automd -->
 
-## Runtime type checking utils
-
-You can use `is*(input)` ans `assert*(input)` utils to validate input type.
-
-> [!NOTE]
-> All conversion utilities use assertions for runtime type safety by default, so you don't need to manually do this.
-
-**Example:**
-
-```ts
-import { isReadableStream, assertArrayBuffer } from "undio";
-
-if (isReadableStream(value)) {
-  /* do something */
-}
-
-assertArrayBuffer(value); // Throws an error if value is not ArrayBuffer
-// do something
-```
-
 ## Auto Convert
 
 Undio automatically detects the input type and uses the proper method to convert it to the expected type.
@@ -115,6 +104,26 @@ const type = detectType(value);
 
 > [!NOTE]
 > Alternatively you can use low-level `*To*(value)` utils to explicitly convert from one type to another. See [all utils](#all-utils) section.
+
+## Runtime type checking
+
+You can use `is*(input)` ans `assert*(input)` utils to validate input type.
+
+> [!NOTE]
+> All conversion utilities use assertions for runtime type safety by default, so you don't need to manually do this.
+
+**Example:**
+
+```ts
+import { isReadableStream, assertArrayBuffer } from "undio";
+
+if (isReadableStream(value)) {
+  /* do something */
+}
+
+assertArrayBuffer(value); // Throws an error if value is not ArrayBuffer
+// do something
+```
 
 ## All utils
 
