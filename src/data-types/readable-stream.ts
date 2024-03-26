@@ -107,7 +107,7 @@ const _convertMap: ConvertMap<ReadableStream> = {
 
 /**
  * Convert from any value to [readableStream][readableStream]
- * @group readableStream
+ * @group ReadableStream
  */
 export const toreadableStream = (input: DataType) =>
   convertTo<ReadableStream>("readableStream", input, _convertMap);

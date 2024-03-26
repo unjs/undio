@@ -92,7 +92,7 @@ const _convertMap: ConvertMap<number[]> = {
 
 /**
  * Convert from any value to [numberArray][numberArray]
- * @group numberArray
+ * @group NumberArray
  */
 export const tonumberArray = (input: DataType) =>
   convertTo<number[]>("numberArray", input, _convertMap);

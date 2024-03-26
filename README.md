@@ -242,12 +242,6 @@ Convert from any value to [DataView][DataView]
 
 ## Number Array
 
-### `tonumberArray(input)`
-
-Convert from any value to [numberArray][numberArray]
-
-## Number Array
-
 ### `assertNumberArray(input)`
 
 Assert that input is an instance of [Number Array][Number Array] or throw a `TypeError`.
@@ -280,11 +274,9 @@ Convert from [Number Array][Number Array] to [String][String]
 
 Convert from [Number Array][Number Array] to [Uint8Array][Uint8Array]
 
-## Readable Stream
+### `tonumberArray(input)`
 
-### `toreadableStream(input)`
-
-Convert from any value to [readableStream][readableStream]
+Convert from any value to [numberArray][numberArray]
 
 ## Readable Stream
 
@@ -319,6 +311,10 @@ Convert from [ReadableStream][ReadableStream] to [String][String]
 ### `readableStreamToUint8Array(readableStream)`
 
 Convert from [ReadableStream][ReadableStream] to [Uint8Array][Uint8Array]
+
+### `toreadableStream(input)`
+
+Convert from any value to [readableStream][readableStream]
 
 ## String
 
