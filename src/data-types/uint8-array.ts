@@ -20,7 +20,9 @@ export const assertUint8Array = (input: unknown) =>
  * Convert from [Uint8Array][Uint8Array] to [ArrayBuffer][ArrayBuffer]
  * @group Uint8Array
  */
-export function uint8ArrayToArrayBuffer(uint8Array: Uint8Array): ArrayBuffer {
+export function uint8ArrayToArrayBuffer(
+  uint8Array: Uint8Array,
+): ArrayBufferLike {
   return uint8Array.buffer;
 }
 

@@ -20,7 +20,7 @@ export const assertString = (input: unknown) =>
  * Convert from [string][string] to [ArrayBuffer][ArrayBuffer]
  * @group String
  */
-export function stringToArrayBuffer(string: string): ArrayBuffer {
+export function stringToArrayBuffer(string: string): ArrayBufferLike {
   assertString(string);
   return new TextEncoder().encode(string).buffer;
 }

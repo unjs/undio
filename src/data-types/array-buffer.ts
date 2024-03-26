@@ -21,7 +21,7 @@ export const assertArrayBuffer = (input: unknown) =>
  * @group ArrayBuffer
  */
 export function arrayBufferToBlob(
-  arrayBuffer: ArrayBufferLike,
+  arrayBuffer: ArrayBuffer,
   options?: BlobPropertyBag,
 ): Blob {
   assertArrayBuffer(arrayBuffer);
@@ -69,7 +69,7 @@ export function arrayBufferToReadableStream(
  * @group ArrayBuffer
  */
 export function arrayBufferToResponse(
-  arrayBuffer: ArrayBufferLike,
+  arrayBuffer: ArrayBuffer,
   init?: ResponseInit,
 ): Response {
   assertArrayBuffer(arrayBuffer);
@@ -80,7 +80,7 @@ export function arrayBufferToResponse(
  * Convert from [ArrayBuffer][ArrayBuffer] to [String][String]
  * @group ArrayBuffer
  */
-export function arrayBufferToString(arrayBuffer: ArrayBufferLike): string {
+export function arrayBufferToString(arrayBuffer: ArrayBuffer): string {
   assertArrayBuffer(arrayBuffer);
   return new TextDecoder().decode(arrayBuffer);
 }

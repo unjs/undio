@@ -21,7 +21,9 @@ export const assertNumberArray = (input: unknown) =>
  * Convert from [Number Array][Number Array] to [ArrayBuffer][ArrayBuffer]
  * @group NumberArray
  */
-export function numberArrayToArrayBuffer(numberArray: number[]): ArrayBuffer {
+export function numberArrayToArrayBuffer(
+  numberArray: number[],
+): ArrayBufferLike {
   return new Uint8Array(numberArray).buffer;
 }
 

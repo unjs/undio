@@ -10,6 +10,7 @@ export type DataTypeName =
 
 export type DataType =
   | ArrayBuffer
+  | ArrayBufferLike
   | Blob
   | DataView
   | number[]
