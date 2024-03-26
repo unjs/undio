@@ -23,6 +23,7 @@
 - [DataView][DataView]
 - [Number Array][Number Array]
 - [ReadableStream][ReadableStream]
+- [Response][Response]
 - [String][String]
 - [Uint8Array][Uint8Array]
 
@@ -144,6 +145,10 @@ Convert from [ArrayBuffer][ArrayBuffer] to [Number Array][Number Array]
 
 Convert from [ArrayBuffer][ArrayBuffer] to [ReadableStream][ReadableStream]
 
+### `arrayBufferToResponse(arrayBuffer, init?)`
+
+Convert from [ArrayBuffer][ArrayBuffer] to [Response][Response]
+
 ### `arrayBufferToString(arrayBuffer)`
 
 Convert from [ArrayBuffer][ArrayBuffer] to [String][String]
@@ -186,6 +191,10 @@ Convert from [Blob][Blob] to [Number Array][Number Array]
 
 Convert from [Blob][Blob] to [ReadableStream][ReadableStream]
 
+### `blobToResponse(blob, init?)`
+
+Convert from [Blob][Blob] to [Response][Response]
+
 ### `blobToString(blob)`
 
 Convert from [Blob][Blob] to [String][String]
@@ -223,6 +232,10 @@ Convert from [DataView][DataView] to [Number Array][Number Array]
 ### `dataViewToReadableStream(dataView)`
 
 Convert from [DataView][DataView] to [ReadableStream][ReadableStream]
+
+### `dataViewToResponse(dataView, init?)`
+
+Convert from [DataView][DataView] to [Response][Response]
 
 ### `dataViewToString(dataView)`
 
@@ -276,7 +289,7 @@ Convert from [Number Array][Number Array] to [Uint8Array][Uint8Array]
 
 ### `tonumberArray(input)`
 
-Convert from any value to [numberArray][numberArray]
+Convert from any value to [Number Array][Number Array]
 
 ## Readable Stream
 
@@ -315,6 +328,48 @@ Convert from [ReadableStream][ReadableStream] to [Uint8Array][Uint8Array]
 ### `toreadableStream(input)`
 
 Convert from any value to [readableStream][readableStream]
+
+## Response
+
+### `assertResponse(input)`
+
+Assert that input is an instance of [Response][Response] or throw a `TypeError`.
+
+### `isResponse(input)`
+
+Test if input is an instance of [Response][Response] and return `true` or `false`.
+
+### `responseToArrayBuffer(response)`
+
+Convert from [Response][Response] to [ArrayBuffer][ArrayBuffer]
+
+### `responseToBlob(response)`
+
+Convert from [Response][Response] to [Blob][Blob]
+
+### `responseToDataView(response)`
+
+Convert from [Response][Response] to [DataView][DataView]
+
+### `responseToNumberArray(response)`
+
+Convert from [Response][Response] to [Number Array][Number Array]
+
+### `responseToReadableStream(response)`
+
+Convert from [Response][Response] to [ReadableStream]ReadableStream]
+
+### `responseToString(response)`
+
+Convert from [Response][Response] to [String][String]
+
+### `responseToUint8Array(response)`
+
+Convert from [Response][Response] to [Uint8Array][Uint8Array]
+
+### `toResponse(input)`
+
+Convert from any value to [Response][Response]
 
 ## String
 
@@ -384,11 +439,25 @@ Convert from [Uint8Array][Uint8Array] to [Number Array][Number Array]
 
 Convert from [Uint8Array][Uint8Array] to [ReadableStream][ReadableStream]
 
+### `uint8ArrayToResponse(uint8Array, init?)`
+
+Convert from [Uint8Array][Uint8Array] to [Response][Response]
+
 ### `uint8ArrayToString(uint8Array)`
 
 Convert from [Uint8Array][Uint8Array] to [String][String]
 
 ### `detectType(input)`
+
+### `numberArrayToResponse(numberArray, init?)`
+
+Convert from [Number Array][Number Array] to [Response][Response]
+
+### `readableStreamToResponse(readableStream, init?)`
+
+Convert from [ReadableStream][ReadableStream] to [Response][Response]
+
+### `stringToResponse(string, init?)`
 
 <!-- /automd -->
 
@@ -430,9 +499,10 @@ _🤖 auto updated with [automd](https://automd.unjs.io)_
 <!-- /automd -->
 
 [ArrayBuffer]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer
-[Blob]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Blob
+[Blob]: https://developer.mozilla.org/en-US/docs/Web/API/Blob
 [DataView]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView
 [Number Array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-[ReadableStream]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReadableStream
+[ReadableStream]: https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream
+[Response]: https://developer.mozilla.org/en-US/docs/Web/API/Response
 [String]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 [Uint8Array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array

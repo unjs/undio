@@ -63,6 +63,17 @@ export function numberArrayToReadableStream(
 }
 
 /**
+ * Convert from [Number Array][Number Array] to [Response][Response]
+ */
+export function numberArrayToResponse(
+  numberArray: number[],
+  init?: ResponseInit,
+): Response {
+  assertNumberArray(numberArray);
+  return new Response(new Uint8Array(numberArray), init);
+}
+
+/**
  * Convert from [Number Array][Number Array] to [String][String]
  * @group NumberArray
  */
@@ -86,12 +97,13 @@ const _convertMap: ConvertMap<number[]> = {
   DataView: numberArrayToDataView,
   NumberArray: (input) => input,
   ReadableStream: numberArrayToReadableStream,
+  Response: numberArrayToResponse,
   String: numberArrayToString,
   Uint8Array: numberArrayToUint8Array,
 } as const;
 
 /**
- * Convert from any value to [numberArray][numberArray]
+ * Convert from any value to [Number Array][Number Array]
  * @group NumberArray
  */
 export const tonumberArray = (input: DataType) =>

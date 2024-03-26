@@ -54,6 +54,15 @@ export function blobToReadableStream(blob: Blob): ReadableStream<Uint8Array> {
 }
 
 /**
+ * Convert from [Blob][Blob] to [Response][Response]
+ * @group Blob
+ */
+export function blobToResponse(blob: Blob, init?: ResponseInit): Response {
+  assertBlob(blob);
+  return new Response(blob, init);
+}
+
+/**
  * Convert from [Blob][Blob] to [String][String]
  * @group Blob
  */
@@ -77,6 +86,7 @@ const _convertMap: ConvertMap<Blob> = {
   DataView: blobToDataView,
   NumberArray: blobToNumberArray,
   ReadableStream: blobToReadableStream,
+  Response: blobToResponse,
   String: blobToString,
   Uint8Array: blobToUint8Array,
 } as const;

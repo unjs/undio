@@ -71,6 +71,18 @@ export function dataViewToString(dataView: DataView): string {
 }
 
 /**
+ * Convert from [DataView][DataView] to [Response][Response]
+ * @group DataView
+ */
+export function dataViewToResponse(
+  dataView: DataView,
+  init?: ResponseInit,
+): Response {
+  assertDataView(dataView);
+  return new Response(dataView.buffer, init);
+}
+
+/**
  * Convert from [DataView][DataView] to [Uint8Array][Uint8Array]
  * @group DataView
  */
@@ -89,6 +101,7 @@ const _convertMap: ConvertMap<DataView> = {
   DataView: (input) => input,
   NumberArray: dataViewToNumberArray,
   ReadableStream: dataViewToReadableStream,
+  Response: dataViewToResponse,
   String: dataViewToString,
   Uint8Array: dataViewToUint8Array,
 } as const;

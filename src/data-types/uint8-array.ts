@@ -75,6 +75,18 @@ export function uint8ArrayToReadableStream(
 }
 
 /**
+ * Convert from [Uint8Array][Uint8Array] to [Response][Response]
+ * @group Uint8Array
+ */
+export function uint8ArrayToResponse(
+  uint8Array: Uint8Array,
+  init?: ResponseInit,
+): Response {
+  assertUint8Array(uint8Array);
+  return new Response(uint8Array, init);
+}
+
+/**
  * Convert from [Uint8Array][Uint8Array] to [String][String]
  * @group Uint8Array
  */
@@ -89,6 +101,7 @@ const _convertMap: ConvertMap<Uint8Array> = {
   DataView: uint8ArrayToDataView,
   NumberArray: uint8ArrayToNumberArray,
   ReadableStream: uint8ArrayToReadableStream,
+  Response: uint8ArrayToResponse,
   String: uint8ArrayToString,
   Uint8Array: (input) => input,
 } as const;

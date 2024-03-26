@@ -68,6 +68,14 @@ export function stringToReadableStream(
   });
 }
 
+export function stringToResponse(
+  string: string,
+  init?: ResponseInit,
+): Response {
+  assertString(string);
+  return new Response(string, init);
+}
+
 /**
  * Convert from [string][string] to [Uint8Array][Uint8Array]
  * @group String
@@ -83,6 +91,7 @@ const _convertMap: ConvertMap<string> = {
   DataView: stringToDataView,
   NumberArray: stringToNumberArray,
   ReadableStream: stringToReadableStream,
+  Response: stringToResponse,
   String: (input) => input,
   Uint8Array: stringToUint8Array,
 } as const;

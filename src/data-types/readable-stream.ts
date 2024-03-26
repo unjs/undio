@@ -84,6 +84,17 @@ export async function readableStreamToString(
 }
 
 /**
+ * Convert from [ReadableStream][ReadableStream] to [Response][Response]
+ */
+export function readableStreamToResponse(
+  readableStream: ReadableStream,
+  init?: ResponseInit,
+): Response {
+  assertReadableStream(readableStream);
+  return new Response(readableStream, init);
+}
+
+/**
  * Convert from [ReadableStream][ReadableStream] to [Uint8Array][Uint8Array]
  * @group ReadableStream
  */
@@ -101,6 +112,7 @@ const _convertMap: ConvertMap<ReadableStream> = {
   DataView: readableStreamToDataView,
   NumberArray: readableStreamToNumberArray,
   ReadableStream: (input) => input,
+  Response: readableStreamToResponse,
   String: readableStreamToString,
   Uint8Array: readableStreamToUint8Array,
 } as const;

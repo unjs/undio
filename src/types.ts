@@ -4,6 +4,7 @@ export type DataTypeName =
   | "DataView"
   | "NumberArray"
   | "ReadableStream"
+  | "Response"
   | "String"
   | "Uint8Array";
 
@@ -13,5 +14,6 @@ export type DataType =
   | DataView
   | number[]
   | ReadableStream
+  | Response
   | string
   | Uint8Array;

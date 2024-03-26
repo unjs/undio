@@ -65,6 +65,18 @@ export function arrayBufferToReadableStream(
 }
 
 /**
+ * Convert from [ArrayBuffer][ArrayBuffer] to [Response][Response]
+ * @group ArrayBuffer
+ */
+export function arrayBufferToResponse(
+  arrayBuffer: ArrayBufferLike,
+  init?: ResponseInit,
+): Response {
+  assertArrayBuffer(arrayBuffer);
+  return new Response(arrayBuffer, init);
+}
+
+/**
  * Convert from [ArrayBuffer][ArrayBuffer] to [String][String]
  * @group ArrayBuffer
  */
@@ -91,6 +103,7 @@ const _convertMap: ConvertMap<ArrayBuffer> = {
   DataView: arrayBufferToDataView,
   NumberArray: arrayBufferToNumberArray,
   ReadableStream: arrayBufferToReadableStream,
+  Response: arrayBufferToResponse,
   String: arrayBufferToString,
   Uint8Array: arrayBufferToUint8Array,
 } as const;
