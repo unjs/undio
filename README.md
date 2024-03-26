@@ -15,6 +15,7 @@
 - Runtime-type safety assertion
 - Auto type detection and conversion
 - Tree-shakable and compact build
+- Leverage runtime native performance ([+Bun stream utils](https://bun.sh/docs/api/utils#bun-readablestreamto))
 
 ## 👍 Supported Types
 

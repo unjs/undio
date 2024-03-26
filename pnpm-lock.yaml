@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 devDependencies:
+  '@types/bun':
+    specifier: ^1.0.11
+    version: 1.0.11
   '@types/node':
     specifier: ^20.11.30
     version: 20.11.30
@@ -1137,6 +1140,12 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: true
 
+  /@types/bun@1.0.11:
+    resolution: {integrity: sha512-kU4yU7vs/J/yIBoocc9j0sR/CxQ/WD4hSx3rl+WA2nLjcYuGR5aHJXVIBRcT5zvMmTt4CnSVkiONiWPob5trFg==}
+    dependencies:
+      bun-types: 1.0.35
+    dev: true
+
   /@types/estree@1.0.5:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
     dev: true
@@ -1169,6 +1178,12 @@ packages:
 
   /@types/semver@7.5.8:
     resolution: {integrity: sha512-I8EUhyrgfLrcTkzV3TSsGyl1tSuPrEDzr0yd5m90UgNxQkyDXULk3b6MlQqTCpZpNtWe1K0hzclnZkTcLBe2UQ==}
+    dev: true
+
+  /@types/ws@8.5.10:
+    resolution: {integrity: sha512-vmQSUcfalpIq0R9q7uTo2lXs6eGIpt9wtnLdMv9LVpIjCA/+ufZRozlVoVelIYixx1ugCBKDhn89vnsEGOCx9A==}
+    dependencies:
+      '@types/node': 20.11.30
     dev: true
 
   /@typescript-eslint/eslint-plugin@5.62.0(@typescript-eslint/parser@5.62.0)(eslint@8.57.0)(typescript@5.4.3):
@@ -1621,6 +1636,13 @@ packages:
     resolution: {integrity: sha512-qwVpFEHNfhYJIzNRBvd2C1kyo6jz3ZSMPyyuR47OPdiKWlbYnZNyDWuyR175qDnAJLiCo5fBBqPb3RiXgWlkOQ==}
     dependencies:
       semver: 7.6.0
+    dev: true
+
+  /bun-types@1.0.35:
+    resolution: {integrity: sha512-JlFllUCVMZbDyGfbv9dBWXd2tRdZSzyP1EWDKcTTVRViYNYX8AEsfpMN/vu6Hk8CBhKrhbbBkKZcNjJev8QQHQ==}
+    dependencies:
+      '@types/node': 20.11.30
+      '@types/ws': 8.5.10
     dev: true
 
   /bundle-name@3.0.0:

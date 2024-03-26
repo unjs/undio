@@ -23,7 +23,10 @@ export const assertReadableStream = (input: unknown) =>
 export async function readableStreamToArrayBuffer(
   readableStream: ReadableStream,
 ): Promise<ArrayBuffer> {
-  // assertReadableStream(readableStream);
+  if (globalThis.Bun?.readableStreamToArrayBuffer) {
+    assertReadableStream(readableStream);
+    return globalThis.Bun.readableStreamToArrayBuffer(readableStream);
+  }
   const blob = await readableStreamToBlob(readableStream);
   return blob.arrayBuffer();
 }
@@ -36,7 +39,10 @@ export async function readableStreamToBlob(
   readableStream: ReadableStream,
   options?: BlobPropertyBag,
 ): Promise<Blob> {
-  assertReadableStream(readableStream);
+  if (globalThis.Bun?.readableStreamToBlob) {
+    assertReadableStream(readableStream);
+    return globalThis.Bun.readableStreamToBlob(readableStream);
+  }
   const reader = readableStream.getReader();
   const chunks: Uint8Array[] = [];
   while (true) {
@@ -67,6 +73,10 @@ export async function readableStreamToDataView(
 export async function readableStreamToNumberArray(
   readableStream: ReadableStream,
 ): Promise<number[]> {
+  if (globalThis.Bun?.readableStreamToArray) {
+    assertReadableStream(readableStream);
+    return globalThis.Bun.readableStreamToArray(readableStream);
+  }
   // assertReadableStream(readableStream);
   return [...(await readableStreamToUint8Array(readableStream))];
 }
@@ -78,6 +88,10 @@ export async function readableStreamToNumberArray(
 export async function readableStreamToString(
   readableStream: ReadableStream,
 ): Promise<string> {
+  if (globalThis.Bun?.readableStreamToText) {
+    assertReadableStream(readableStream);
+    return globalThis.Bun.readableStreamToText(readableStream);
+  }
   // assertReadableStream(readableStream);
   const blob = await readableStreamToBlob(readableStream);
   return blob.text();
