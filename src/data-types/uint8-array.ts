@@ -18,7 +18,7 @@ export const assertUint8Array = (input: unknown) =>
 
 /**
  * Convert from [Uint8Array][Uint8Array] to [ArrayBuffer][ArrayBuffer]
- @group Uint8Array
+ * @group Uint8Array
  */
 export function uint8ArrayToArrayBuffer(uint8Array: Uint8Array): ArrayBuffer {
   return uint8Array.buffer;
@@ -26,7 +26,7 @@ export function uint8ArrayToArrayBuffer(uint8Array: Uint8Array): ArrayBuffer {
 
 /**
  * Convert from [Uint8Array][Uint8Array] to [Blob][Blob]
- @group Uint8Array
+ * @group Uint8Array
  */
 export function uint8ArrayToBlob(
   uint8Array: Uint8Array,
@@ -38,7 +38,7 @@ export function uint8ArrayToBlob(
 
 /**
  * Convert from [Uint8Array][Uint8Array] to [DataView][DataView]
- @group Uint8Array
+ * @group Uint8Array
  */
 export function uint8ArrayToDataView(uint8Array: Uint8Array): DataView {
   assertUint8Array(uint8Array);
@@ -51,7 +51,7 @@ export function uint8ArrayToDataView(uint8Array: Uint8Array): DataView {
 
 /**
  * Convert from [Uint8Array][Uint8Array] to [Number Array][Number Array]
- @group Uint8Array
+ * @group Uint8Array
  */
 export function uint8ArrayToNumberArray(uint8Array: Uint8Array): number[] {
   assertUint8Array(uint8Array);
@@ -60,7 +60,7 @@ export function uint8ArrayToNumberArray(uint8Array: Uint8Array): number[] {
 
 /**
  * Convert from [Uint8Array][Uint8Array] to [ReadableStream][ReadableStream]
- @group Uint8Array
+ * @group Uint8Array
  */
 export function uint8ArrayToReadableStream(
   uint8Array: Uint8Array,
@@ -76,7 +76,7 @@ export function uint8ArrayToReadableStream(
 
 /**
  * Convert from [Uint8Array][Uint8Array] to [String][String]
- @group Uint8Array
+ * @group Uint8Array
  */
 export function uint8ArrayToString(uint8Array: Uint8Array): string {
   assertUint8Array(uint8Array);

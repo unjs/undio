@@ -9,29 +9,22 @@
 
 ⇔ Conventionally and safely convert between various JavaScript data types.
 
-<table border="0">
- <tr>
-    <td>Supported Types</td>
-    <td>Features</b></td>
- </tr>
- <tr style="vertical-align: top;">
-    <td>
-👍 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer">ArrayBuffer</a><br>
-👍 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Blob">Blob</a><br>
-👍 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView">DataView</a><br>
-👍 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Number Array]</a><br>
-👍 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReadableStream">ReadableStream</a><br>
-👍 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">BStringlob</a><br>
-👍 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array">Uint8Array</a><br>
-    </td>
-    <td>
-✅ Type-safe usage <br>
-✅ Runtime-type safety assertion <br>
-✅ Auto type detection and conversion <br>
-✅ Tree-shakable and compact build <br>
-    </td>
- </tr>
-</table>
+## ✅ Features
+
+- Type-safe usage
+- Runtime-type safety assertion
+- Auto type detection and conversion
+- Tree-shakable and compact build
+
+## 👍 Supported Types
+
+- [ArrayBuffer][ArrayBuffer]
+- [Blob][Blob]
+- [DataView][DataView]
+- [Number Array][Number Array]
+- [ReadableStream][ReadableStream]
+- [String][String]
+- [Uint8Array][Uint8Array]
 
 ## Usage
 
@@ -375,43 +368,31 @@ Test if input is an instance of [Uint8Array][Uint8Array] and return `true` or `f
 
 Convert from any value to [Uint8Array][Uint8Array]
 
-### `detectType(input)`
-
 ### `uint8ArrayToArrayBuffer(uint8Array)`
 
 Convert from [Uint8Array][Uint8Array] to [ArrayBuffer][ArrayBuffer]
-
-@group Uint8Array
 
 ### `uint8ArrayToBlob(uint8Array, options?)`
 
 Convert from [Uint8Array][Uint8Array] to [Blob][Blob]
 
-@group Uint8Array
-
 ### `uint8ArrayToDataView(uint8Array)`
 
 Convert from [Uint8Array][Uint8Array] to [DataView][DataView]
-
-@group Uint8Array
 
 ### `uint8ArrayToNumberArray(uint8Array)`
 
 Convert from [Uint8Array][Uint8Array] to [Number Array][Number Array]
 
-@group Uint8Array
-
 ### `uint8ArrayToReadableStream(uint8Array)`
 
 Convert from [Uint8Array][Uint8Array] to [ReadableStream][ReadableStream]
-
-@group Uint8Array
 
 ### `uint8ArrayToString(uint8Array)`
 
 Convert from [Uint8Array][Uint8Array] to [String][String]
 
-@group Uint8Array
+### `detectType(input)`
 
 <!-- /automd -->
 
