@@ -1,9 +1,9 @@
 # ⇔ undio
 
-<!-- automd:badges color=yellow -->
+<!-- automd:badges no-npmDownloads color=yellow bundlejs -->
 
-[![npm version](https://flat.badgen.net/npm/v/undio?color=yellow)](https://npmjs.com/package/undio)
-[![npm downloads](https://flat.badgen.net/npm/dm/undio?color=yellow)](https://npmjs.com/package/undio)
+[![npm version](https://img.shields.io/npm/v/undio?color=yellow)](https://npmjs.com/package/undio)
+[![bundle size](https://img.shields.io/bundlejs/size/undio?color=yellow)](https://bundlejs.com/?q=undio)
 
 <!-- /automd -->
 

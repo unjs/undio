@@ -12,8 +12,8 @@ devDependencies:
     specifier: ^1.4.0
     version: 1.4.0(vitest@1.4.0)
   automd:
-    specifier: ^0.3.6
-    version: 0.3.6
+    specifier: ^0.3.7
+    version: 0.3.7
   changelogen:
     specifier: ^0.5.5
     version: 0.5.5
@@ -1508,8 +1508,8 @@ packages:
     resolution: {integrity: sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==}
     dev: true
 
-  /automd@0.3.6:
-    resolution: {integrity: sha512-6FmbZ6vTxFNohdU8ELwUUAee9u+ev8UNFk22A265P7g/IDviZthlWc4PTRgk1IlDJTXS1KHeMpl/PmuBgBOa+w==}
+  /automd@0.3.7:
+    resolution: {integrity: sha512-h+w7Z1xQSdIuGmgDKVVvCl6fwj7V9b7BqUs6LlelvTcrwkLzqJnxpzcK0HoiesPb0xsf1yTfngeoDgYs2NN2Tw==}
     hasBin: true
     dependencies:
       '@parcel/watcher': 2.4.1
