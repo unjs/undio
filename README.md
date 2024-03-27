@@ -166,10 +166,6 @@ Assert that input is an instance of [ArrayBuffer][ArrayBuffer] or throw a `TypeE
 
 Test if input is an instance of [ArrayBuffer][ArrayBuffer] and return `true` or `false`.
 
-### `toArrayBuffer(input)`
-
-Convert from any value to [ArrayBuffer][ArrayBuffer]
-
 ## Blob
 
 ### `assertBlob(input)`
@@ -207,10 +203,6 @@ Convert from [Blob][Blob] to [Uint8Array][Uint8Array]
 ### `isBlob(input)`
 
 Test if input is an instance of [Blob][Blob] and return `true` or `false`.
-
-### `toBlob(input)`
-
-Convert from any value to [Blob][Blob]
 
 ## Data View
 
@@ -250,10 +242,6 @@ Convert from [DataView][DataView] to [Uint8Array][Uint8Array]
 
 Test if input is an instance of [DataView][DataView] and return `true` or `false`.
 
-### `toDataView(input)`
-
-Convert from any value to [DataView][DataView]
-
 ## Number Array
 
 ### `assertNumberArray(input)`
@@ -288,10 +276,6 @@ Convert from [Number Array][Number Array] to [String][String]
 
 Convert from [Number Array][Number Array] to [Uint8Array][Uint8Array]
 
-### `tonumberArray(input)`
-
-Convert from any value to [Number Array][Number Array]
-
 ## Readable Stream
 
 ### `assertReadableStream(input)`
@@ -325,10 +309,6 @@ Convert from [ReadableStream][ReadableStream] to [String][String]
 ### `readableStreamToUint8Array(readableStream)`
 
 Convert from [ReadableStream][ReadableStream] to [Uint8Array][Uint8Array]
-
-### `toreadableStream(input)`
-
-Convert from any value to [readableStream][readableStream]
 
 ## Response
 
@@ -367,10 +347,6 @@ Convert from [Response][Response] to [String][String]
 ### `responseToUint8Array(response)`
 
 Convert from [Response][Response] to [Uint8Array][Uint8Array]
-
-### `toResponse(input)`
-
-Convert from any value to [Response][Response]
 
 ## String
 
@@ -415,10 +391,6 @@ Assert that input is an instance of [Uint8Array][Uint8Array] or throw a `TypeErr
 ### `isUint8Array(input)`
 
 Test if input is an instance of [Uint8Array][Uint8Array] and return `true` or `false`.
-
-### `toUint8Array(input)`
-
-Convert from any value to [Uint8Array][Uint8Array]
 
 ### `uint8ArrayToArrayBuffer(uint8Array)`
 
