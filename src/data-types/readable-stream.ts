@@ -1,5 +1,4 @@
-import { DataType } from "../types";
-import { assertType, ConvertMap, convertTo } from "./_utils";
+import { assertType } from "./_utils";
 
 /**
  * Test if input is an instance of [ReadableStream][ReadableStream] and return `true` or `false`.
@@ -119,21 +118,3 @@ export async function readableStreamToUint8Array(
   const arrayBuffer = await readableStreamToArrayBuffer(readableStream);
   return new Uint8Array(arrayBuffer);
 }
-
-const _convertMap: ConvertMap<ReadableStream> = {
-  ArrayBuffer: readableStreamToArrayBuffer,
-  Blob: readableStreamToBlob,
-  DataView: readableStreamToDataView,
-  NumberArray: readableStreamToNumberArray,
-  ReadableStream: (input) => input,
-  Response: readableStreamToResponse,
-  String: readableStreamToString,
-  Uint8Array: readableStreamToUint8Array,
-} as const;
-
-/**
- * Convert from any value to [readableStream][readableStream]
- * @group ReadableStream
- */
-export const toreadableStream = (input: DataType) =>
-  convertTo<ReadableStream>("readableStream", input, _convertMap);

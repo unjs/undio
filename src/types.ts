@@ -9,7 +9,6 @@ export type DataTypeName =
   | "Uint8Array";
 
 export type DataType =
-  | ArrayBuffer
   | ArrayBufferLike
   | Blob
   | DataView

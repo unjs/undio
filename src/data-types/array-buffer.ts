@@ -1,5 +1,4 @@
-import { DataType } from "../types";
-import { ConvertMap, assertType, convertTo } from "./_utils";
+import { assertType } from "./_utils";
 
 /**
  * Test if input is an instance of [ArrayBuffer][ArrayBuffer] and return `true` or `false`.
@@ -80,7 +79,7 @@ export function arrayBufferToResponse(
  * Convert from [ArrayBuffer][ArrayBuffer] to [String][String]
  * @group ArrayBuffer
  */
-export function arrayBufferToString(arrayBuffer: ArrayBuffer): string {
+export function arrayBufferToString(arrayBuffer: ArrayBufferLike): string {
   assertArrayBuffer(arrayBuffer);
   return new TextDecoder().decode(arrayBuffer);
 }
@@ -96,21 +95,3 @@ export function arrayBufferToUint8Array(
   assertArrayBuffer(arrayBuffer);
   return new Uint8Array(arrayBuffer);
 }
-
-const _convertMap: ConvertMap<ArrayBuffer> = {
-  ArrayBuffer: (input) => input,
-  Blob: arrayBufferToBlob,
-  DataView: arrayBufferToDataView,
-  NumberArray: arrayBufferToNumberArray,
-  ReadableStream: arrayBufferToReadableStream,
-  Response: arrayBufferToResponse,
-  String: arrayBufferToString,
-  Uint8Array: arrayBufferToUint8Array,
-} as const;
-
-/**
- * Convert from any value to [ArrayBuffer][ArrayBuffer]
- * @group ArrayBuffer
- */
-export const toArrayBuffer = (input: DataType) =>
-  convertTo<ArrayBuffer>("ArrayBuffer", input, _convertMap);

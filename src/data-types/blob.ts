@@ -1,5 +1,4 @@
-import { DataType } from "../types";
-import { assertType, ConvertMap, convertTo } from "./_utils";
+import { assertType } from "./_utils";
 
 /**
  * Test if input is an instance of [Blob][Blob] and return `true` or `false`.
@@ -79,21 +78,3 @@ export function blobToUint8Array(blob: Blob): Promise<Uint8Array> {
   assertBlob(blob);
   return blob.arrayBuffer().then((arrayBuffer) => new Uint8Array(arrayBuffer));
 }
-
-const _convertMap: ConvertMap<Blob> = {
-  ArrayBuffer: blobToArrayBuffer,
-  Blob: (input) => input,
-  DataView: blobToDataView,
-  NumberArray: blobToNumberArray,
-  ReadableStream: blobToReadableStream,
-  Response: blobToResponse,
-  String: blobToString,
-  Uint8Array: blobToUint8Array,
-} as const;
-
-/**
- * Convert from any value to [Blob][Blob]
- * @group Blob
- */
-export const toBlob = (input: DataType) =>
-  convertTo<Blob>("Blob", input, _convertMap);

@@ -20,8 +20,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "unbuild",
+    "build": "pnpm gen-maps && unbuild",
     "dev": "vitest dev",
+    "gen-maps": "jiti ./scripts/gen-maps.ts",
     "lint": "eslint --cache --ext .ts,.js,.mjs,.cjs . && prettier -c src test",
     "lint:fix": "automd && eslint --cache --ext .ts,.js,.mjs,.cjs . --fix && prettier -c src test -w",
     "prepack": "pnpm build",

@@ -1,5 +1,4 @@
-import { DataType } from "../types";
-import { assertType, ConvertMap, convertTo } from "./_utils";
+import { assertType } from "./_utils";
 
 /**
  * Test if input is an instance of [String][String] and return `true` or `false`.
@@ -84,21 +83,3 @@ export function stringToUint8Array(string: string): Uint8Array {
   assertString(string);
   return new Uint8Array(new TextEncoder().encode(string));
 }
-
-const _convertMap: ConvertMap<string> = {
-  ArrayBuffer: stringToArrayBuffer,
-  Blob: stringToBlob,
-  DataView: stringToDataView,
-  NumberArray: stringToNumberArray,
-  ReadableStream: stringToReadableStream,
-  Response: stringToResponse,
-  String: (input) => input,
-  Uint8Array: stringToUint8Array,
-} as const;
-
-/**
- * Convert from any value to [String][String]
- * @group String
- */
-export const toString = (input: DataType) =>
-  convertTo<string>("String", input, _convertMap);

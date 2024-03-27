@@ -1,5 +1,4 @@
-import { DataType } from "../types";
-import { assertType, ConvertMap, convertTo } from "./_utils";
+import { assertType } from "./_utils";
 
 /**
  * Test if input is an instance of [Response][Response] and return `true` or `false`.
@@ -86,21 +85,3 @@ export async function responseToUint8Array(
   assertResponse(response);
   return new Uint8Array(await response.arrayBuffer());
 }
-
-const _convertMap: ConvertMap<Response> = {
-  ArrayBuffer: responseToArrayBuffer,
-  Blob: responseToBlob,
-  DataView: responseToDataView,
-  NumberArray: responseToNumberArray,
-  ReadableStream: responseToReadableStream,
-  Response: (input) => input,
-  String: responseToString,
-  Uint8Array: responseToUint8Array,
-} as const;
-
-/**
- * Convert from any value to [Response][Response]
- * @group Response
- */
-export const toResponse = (input: DataType) =>
-  convertTo<Response>("Response", input, _convertMap);

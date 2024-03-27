@@ -1,5 +1,4 @@
-import { DataType } from "../types";
-import { assertType, ConvertMap, convertTo } from "./_utils";
+import { assertType } from "./_utils";
 
 /**
  * Test if input is an instance of [Number Array][Number Array] and return `true` or `false`.
@@ -92,21 +91,3 @@ export function numberArrayToUint8Array(numberArray: number[]): Uint8Array {
   assertNumberArray(numberArray);
   return new Uint8Array(numberArray);
 }
-
-const _convertMap: ConvertMap<number[]> = {
-  ArrayBuffer: numberArrayToArrayBuffer,
-  Blob: numberArrayToBlob,
-  DataView: numberArrayToDataView,
-  NumberArray: (input) => input,
-  ReadableStream: numberArrayToReadableStream,
-  Response: numberArrayToResponse,
-  String: numberArrayToString,
-  Uint8Array: numberArrayToUint8Array,
-} as const;
-
-/**
- * Convert from any value to [Number Array][Number Array]
- * @group NumberArray
- */
-export const tonumberArray = (input: DataType) =>
-  convertTo<number[]>("numberArray", input, _convertMap);

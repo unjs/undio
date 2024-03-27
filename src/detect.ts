@@ -4,6 +4,7 @@ import {
   isDataView,
   isNumberArray,
   isReadableStream,
+  isResponse,
   isString,
   isUint8Array,
 } from "./data-types";
@@ -16,6 +17,7 @@ const detectors: [DataTypeName, (input: unknown) => boolean][] = [
   ["DataView", isDataView],
   ["NumberArray", isNumberArray],
   ["ReadableStream", isReadableStream],
+  ["Response", isResponse],
   ["String", isString],
   ["Uint8Array", isUint8Array],
 ];

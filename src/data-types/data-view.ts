@@ -1,5 +1,4 @@
-import { DataType } from "../types";
-import { assertType, ConvertMap, convertTo } from "./_utils";
+import { assertType } from "./_utils";
 
 /**
  * Test if input is an instance of [DataView][DataView] and return `true` or `false`.
@@ -94,21 +93,3 @@ export function dataViewToUint8Array(dataView: DataView): Uint8Array {
     dataView.byteLength,
   );
 }
-
-const _convertMap: ConvertMap<DataView> = {
-  ArrayBuffer: dataViewToArrayBuffer,
-  Blob: dataViewToBlob,
-  DataView: (input) => input,
-  NumberArray: dataViewToNumberArray,
-  ReadableStream: dataViewToReadableStream,
-  Response: dataViewToResponse,
-  String: dataViewToString,
-  Uint8Array: dataViewToUint8Array,
-} as const;
-
-/**
- * Convert from any value to [DataView][DataView]
- * @group DataView
- */
-export const toDataView = (input: DataType) =>
-  convertTo<DataView>("DataView", input, _convertMap);
