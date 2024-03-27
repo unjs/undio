@@ -79,7 +79,7 @@ export function arrayBufferToResponse(
  * Convert from [ArrayBuffer][ArrayBuffer] to [String][String]
  * @group ArrayBuffer
  */
-export function arrayBufferToString(arrayBuffer: ArrayBufferLike): string {
+export function arrayBufferToString(arrayBuffer: ArrayBuffer): string {
   assertArrayBuffer(arrayBuffer);
   return new TextDecoder().decode(arrayBuffer);
 }

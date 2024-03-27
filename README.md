@@ -166,6 +166,10 @@ Assert that input is an instance of [ArrayBuffer][ArrayBuffer] or throw a `TypeE
 
 Test if input is an instance of [ArrayBuffer][ArrayBuffer] and return `true` or `false`.
 
+### `toArrayBuffer(input)`
+
+Convert from any value to [ArrayBuffer][ArrayBuffer]
+
 ## Blob
 
 ### `assertBlob(input)`
@@ -203,6 +207,10 @@ Convert from [Blob][Blob] to [Uint8Array][Uint8Array]
 ### `isBlob(input)`
 
 Test if input is an instance of [Blob][Blob] and return `true` or `false`.
+
+### `toBlob(input)`
+
+Convert from any value to [Blob][Blob]
 
 ## Data View
 
@@ -242,6 +250,10 @@ Convert from [DataView][DataView] to [Uint8Array][Uint8Array]
 
 Test if input is an instance of [DataView][DataView] and return `true` or `false`.
 
+### `toDataView(input)`
+
+Convert from any value to [DataView][DataView]
+
 ## Number Array
 
 ### `assertNumberArray(input)`
@@ -276,6 +288,10 @@ Convert from [Number Array][Number Array] to [String][String]
 
 Convert from [Number Array][Number Array] to [Uint8Array][Uint8Array]
 
+### `toNumberArray(input)`
+
+Convert from any value to [Number Array][Number Array]
+
 ## Readable Stream
 
 ### `assertReadableStream(input)`
@@ -309,6 +325,14 @@ Convert from [ReadableStream][ReadableStream] to [String][String]
 ### `readableStreamToUint8Array(readableStream)`
 
 Convert from [ReadableStream][ReadableStream] to [Uint8Array][Uint8Array]
+
+### `toReadableStream(input)`
+
+Convert from any value to [ReadableStream][ReadableStream]
+
+### `toResponse(input)`
+
+Convert from any value to [Response][Response]
 
 ## Response
 
@@ -382,6 +406,12 @@ Convert from [string][string] to [ReadableStream][ReadableStream]
 
 Convert from [string][string] to [Uint8Array][Uint8Array]
 
+## Uinit8 Array
+
+### `toUnit8Array(input)`
+
+Convert from any value to [Uinit8Array][Uinit8Array]
+
 ## Uint8 Array
 
 ### `assertUint8Array(input)`
@@ -419,6 +449,10 @@ Convert from [Uint8Array][Uint8Array] to [Response][Response]
 ### `uint8ArrayToString(uint8Array)`
 
 Convert from [Uint8Array][Uint8Array] to [String][String]
+
+### `convertTo(toType, input)`
+
+Convert from any value to any supported data type
 
 ### `detectType(input)`
 
