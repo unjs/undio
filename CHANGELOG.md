@@ -1,6 +1,33 @@
 # Changelog
 
 
+## v0.1.0
+
+[compare changes](https://github.com/unjs/undio/compare/v0.0.1...v0.1.0)
+
+### 💅 Refactors
+
+- ⚠️  Generate type maps ([c2ff49e](https://github.com/unjs/undio/commit/c2ff49e))
+
+### 🏡 Chore
+
+- Apply automated updates ([6de622b](https://github.com/unjs/undio/commit/6de622b))
+- Fix build ([e8fa191](https://github.com/unjs/undio/commit/e8fa191))
+- Set codecov token ([e568360](https://github.com/unjs/undio/commit/e568360))
+- Update badges ([9c29070](https://github.com/unjs/undio/commit/9c29070))
+
+### ✅ Tests
+
+- Add initial tests ([973e0cc](https://github.com/unjs/undio/commit/973e0cc))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Generate type maps ([c2ff49e](https://github.com/unjs/undio/commit/c2ff49e))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v0.0.1
 
 
