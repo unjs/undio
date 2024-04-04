@@ -100,7 +100,8 @@ export function blobToBase64Url(blob: Blob): Promise<Base64Url> {
   assertBlob(blob);
   return blob.arrayBuffer().then((arrayBuffer) => {
     const uint8Array = new Uint8Array(arrayBuffer);
-    return globalThis.btoa(String.fromCodePoint(...uint8Array))
+    return globalThis
+      .btoa(String.fromCodePoint(...uint8Array))
       .replace(/\+/g, "-")
       .replace(/\//g, "_")
       .replace(/=/g, "") as Base64Url;
