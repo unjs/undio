@@ -1,3 +1,4 @@
+import { Base64, Base64Url } from "../types";
 import { assertType } from "./_utils";
 
 /**
@@ -117,4 +118,31 @@ export async function readableStreamToUint8Array(
   // assertReadableStream(readableStream);
   const arrayBuffer = await readableStreamToArrayBuffer(readableStream);
   return new Uint8Array(arrayBuffer);
+}
+
+/**
+ * Convert from [ReadableStream][ReadableStream] to [Base64][Base64]
+ * @group ReadableStream
+ */
+export async function readableStreamToBase64(
+  readableStream: ReadableStream,
+): Promise<Base64> {
+  assertReadableStream(readableStream);
+  const uint8Array = await readableStreamToUint8Array(readableStream);
+  return globalThis.btoa(String.fromCodePoint(...uint8Array)) as Base64;
+}
+
+/**
+ * Convert from [ReadableStream][ReadableStream] to [Base64Url][Base64]
+ * @group ReadableStream
+ */
+export async function readableStreamToBase64Url(
+  readableStream: ReadableStream,
+): Promise<Base64Url> {
+  assertReadableStream(readableStream);
+  const base64 = await readableStreamToBase64(readableStream);
+  return base64
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=/g, "") as Base64Url;
 }

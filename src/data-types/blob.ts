@@ -1,3 +1,4 @@
+import { Base64, Base64Url } from "../types";
 import { assertType } from "./_utils";
 
 /**
@@ -77,4 +78,31 @@ export function blobToString(blob: Blob): Promise<string> {
 export function blobToUint8Array(blob: Blob): Promise<Uint8Array> {
   assertBlob(blob);
   return blob.arrayBuffer().then((arrayBuffer) => new Uint8Array(arrayBuffer));
+}
+
+/**
+ * Convert from [Blob][Blob] to [Base64][Base64]
+ * @group Blob
+ */
+export function blobToBase64(blob: Blob): Promise<Base64> {
+  assertBlob(blob);
+  return blob.arrayBuffer().then((arrayBuffer) => {
+    const uint8Array = new Uint8Array(arrayBuffer);
+    return globalThis.btoa(String.fromCodePoint(...uint8Array)) as Base64;
+  });
+}
+
+/**
+ * Convert from [Blob][Blob] to [Base64Url][Base64]
+ * @group Blob
+ */
+export function blobToBase64Url(blob: Blob): Promise<Base64Url> {
+  assertBlob(blob);
+  return blob.arrayBuffer().then((arrayBuffer) => {
+    const uint8Array = new Uint8Array(arrayBuffer);
+    return globalThis.btoa(String.fromCodePoint(...uint8Array))
+      .replace(/\+/g, "-")
+      .replace(/\//g, "_")
+      .replace(/=/g, "") as Base64Url;
+  });
 }

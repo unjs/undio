@@ -95,3 +95,25 @@ export function uint8ArrayToString(uint8Array: Uint8Array): string {
   assertUint8Array(uint8Array);
   return new TextDecoder().decode(uint8Array);
 }
+
+/**
+ * Convert from [Uint8Array][Uint8Array] to [Base64][Base64]
+ * @group Uint8Array
+ */
+export function uint8ArrayToBase64(uint8Array: Uint8Array): string {
+  assertUint8Array(uint8Array);
+  return globalThis.btoa(String.fromCodePoint(...uint8Array));
+}
+
+/**
+ * Convert from [Uint8Array][Uint8Array] to [Base64][Base64]
+ * @group Uint8Array
+ */
+export function uint8ArrayToBase64Url(uint8Array: Uint8Array): string {
+  assertUint8Array(uint8Array);
+  return globalThis
+    .btoa(String.fromCodePoint(...uint8Array))
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=+$/, "");
+}

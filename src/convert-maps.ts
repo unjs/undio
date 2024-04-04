@@ -1,6 +1,8 @@
 // Auto generated using gen-maps script
 import {
   assertArrayBuffer,
+  base64ToArrayBuffer,
+  base64UrlToArrayBuffer,
   blobToArrayBuffer,
   dataViewToArrayBuffer,
   numberArrayToArrayBuffer,
@@ -8,8 +10,30 @@ import {
   responseToArrayBuffer,
   stringToArrayBuffer,
   uint8ArrayToArrayBuffer,
+  assertBase64,
+  arrayBufferToBase64,
+  base64UrlToBase64,
+  blobToBase64,
+  dataViewToBase64,
+  numberArrayToBase64,
+  readableStreamToBase64,
+  responseToBase64,
+  stringToBase64,
+  uint8ArrayToBase64,
+  assertBase64Url,
+  arrayBufferToBase64Url,
+  base64ToBase64Url,
+  blobToBase64Url,
+  dataViewToBase64Url,
+  numberArrayToBase64Url,
+  readableStreamToBase64Url,
+  responseToBase64Url,
+  stringToBase64Url,
+  uint8ArrayToBase64Url,
   assertBlob,
   arrayBufferToBlob,
+  base64ToBlob,
+  base64UrlToBlob,
   dataViewToBlob,
   numberArrayToBlob,
   readableStreamToBlob,
@@ -18,6 +42,8 @@ import {
   uint8ArrayToBlob,
   assertDataView,
   arrayBufferToDataView,
+  base64ToDataView,
+  base64UrlToDataView,
   blobToDataView,
   numberArrayToDataView,
   readableStreamToDataView,
@@ -26,6 +52,8 @@ import {
   uint8ArrayToDataView,
   assertNumberArray,
   arrayBufferToNumberArray,
+  base64ToNumberArray,
+  base64UrlToNumberArray,
   blobToNumberArray,
   dataViewToNumberArray,
   readableStreamToNumberArray,
@@ -34,6 +62,8 @@ import {
   uint8ArrayToNumberArray,
   assertReadableStream,
   arrayBufferToReadableStream,
+  base64ToReadableStream,
+  base64UrlToReadableStream,
   blobToReadableStream,
   dataViewToReadableStream,
   numberArrayToReadableStream,
@@ -42,6 +72,8 @@ import {
   uint8ArrayToReadableStream,
   assertResponse,
   arrayBufferToResponse,
+  base64ToResponse,
+  base64UrlToResponse,
   blobToResponse,
   dataViewToResponse,
   numberArrayToResponse,
@@ -50,6 +82,8 @@ import {
   uint8ArrayToResponse,
   assertString,
   arrayBufferToString,
+  base64ToString,
+  base64UrlToString,
   blobToString,
   dataViewToString,
   numberArrayToString,
@@ -58,6 +92,8 @@ import {
   uint8ArrayToString,
   assertUint8Array,
   arrayBufferToUint8Array,
+  base64ToUint8Array,
+  base64UrlToUint8Array,
   blobToUint8Array,
   dataViewToUint8Array,
   numberArrayToUint8Array,
@@ -68,6 +104,8 @@ import {
 
 export const _toArrayBuffer = {
   ArrayBuffer: (input: unknown) => (assertArrayBuffer(input), input),
+  Base64: base64ToArrayBuffer,
+  Base64Url: base64UrlToArrayBuffer,
   Blob: blobToArrayBuffer,
   DataView: dataViewToArrayBuffer,
   NumberArray: numberArrayToArrayBuffer,
@@ -77,8 +115,36 @@ export const _toArrayBuffer = {
   Uint8Array: uint8ArrayToArrayBuffer,
 } as const;
 
+export const _toBase64 = {
+  ArrayBuffer: arrayBufferToBase64,
+  Base64: (input: unknown) => (assertBase64(input), input),
+  Base64Url: base64UrlToBase64,
+  Blob: blobToBase64,
+  DataView: dataViewToBase64,
+  NumberArray: numberArrayToBase64,
+  ReadableStream: readableStreamToBase64,
+  Response: responseToBase64,
+  String: stringToBase64,
+  Uint8Array: uint8ArrayToBase64,
+} as const;
+
+export const _toBase64Url = {
+  ArrayBuffer: arrayBufferToBase64Url,
+  Base64: base64ToBase64Url,
+  Base64Url: (input: unknown) => (assertBase64Url(input), input),
+  Blob: blobToBase64Url,
+  DataView: dataViewToBase64Url,
+  NumberArray: numberArrayToBase64Url,
+  ReadableStream: readableStreamToBase64Url,
+  Response: responseToBase64Url,
+  String: stringToBase64Url,
+  Uint8Array: uint8ArrayToBase64Url,
+} as const;
+
 export const _toBlob = {
   ArrayBuffer: arrayBufferToBlob,
+  Base64: base64ToBlob,
+  Base64Url: base64UrlToBlob,
   Blob: (input: unknown) => (assertBlob(input), input),
   DataView: dataViewToBlob,
   NumberArray: numberArrayToBlob,
@@ -90,6 +156,8 @@ export const _toBlob = {
 
 export const _toDataView = {
   ArrayBuffer: arrayBufferToDataView,
+  Base64: base64ToDataView,
+  Base64Url: base64UrlToDataView,
   Blob: blobToDataView,
   DataView: (input: unknown) => (assertDataView(input), input),
   NumberArray: numberArrayToDataView,
@@ -101,6 +169,8 @@ export const _toDataView = {
 
 export const _toNumberArray = {
   ArrayBuffer: arrayBufferToNumberArray,
+  Base64: base64ToNumberArray,
+  Base64Url: base64UrlToNumberArray,
   Blob: blobToNumberArray,
   DataView: dataViewToNumberArray,
   NumberArray: (input: unknown) => (assertNumberArray(input), input),
@@ -112,6 +182,8 @@ export const _toNumberArray = {
 
 export const _toReadableStream = {
   ArrayBuffer: arrayBufferToReadableStream,
+  Base64: base64ToReadableStream,
+  Base64Url: base64UrlToReadableStream,
   Blob: blobToReadableStream,
   DataView: dataViewToReadableStream,
   NumberArray: numberArrayToReadableStream,
@@ -123,6 +195,8 @@ export const _toReadableStream = {
 
 export const _toResponse = {
   ArrayBuffer: arrayBufferToResponse,
+  Base64: base64ToResponse,
+  Base64Url: base64UrlToResponse,
   Blob: blobToResponse,
   DataView: dataViewToResponse,
   NumberArray: numberArrayToResponse,
@@ -134,6 +208,8 @@ export const _toResponse = {
 
 export const _toString = {
   ArrayBuffer: arrayBufferToString,
+  Base64: base64ToString,
+  Base64Url: base64UrlToString,
   Blob: blobToString,
   DataView: dataViewToString,
   NumberArray: numberArrayToString,
@@ -145,6 +221,8 @@ export const _toString = {
 
 export const _toUint8Array = {
   ArrayBuffer: arrayBufferToUint8Array,
+  Base64: base64ToUint8Array,
+  Base64Url: base64UrlToUint8Array,
   Blob: blobToUint8Array,
   DataView: dataViewToUint8Array,
   NumberArray: numberArrayToUint8Array,
@@ -156,6 +234,8 @@ export const _toUint8Array = {
 
 export const _to = {
   ArrayBuffer: _toArrayBuffer,
+  Base64: _toBase64,
+  Base64Url: _toBase64Url,
   Blob: _toBlob,
   DataView: _toDataView,
   NumberArray: _toNumberArray,

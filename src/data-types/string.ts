@@ -1,3 +1,4 @@
+import { Base64, Base64Url } from "../types";
 import { assertType } from "./_utils";
 
 /**
@@ -82,4 +83,35 @@ export function stringToResponse(
 export function stringToUint8Array(string: string): Uint8Array {
   assertString(string);
   return new Uint8Array(new TextEncoder().encode(string));
+}
+
+/**
+ * Convert from [string][string] to [Base64][Base64]
+ * @param encoding - The encoding to use. Default is `utf8`.
+ * @group String
+ */
+export function stringToBase64(
+  string: string,
+  encoding?: "ascii" | "utf8",
+): Base64 {
+  assertString(string);
+  if (encoding === "ascii") {
+    return globalThis.btoa(string) as Base64;
+  }
+  return globalThis.btoa(
+    String.fromCodePoint(...new TextEncoder().encode(string)),
+  ) as Base64;
+}
+
+/**
+ * Convert from [string][string] to [Base64Url][Base64]
+ * @group String
+ */
+export function stringToBase64Url(string: string): Base64Url {
+  assertString(string);
+  return globalThis
+    .btoa(String.fromCodePoint(...new TextEncoder().encode(string)))
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=+$/, "") as Base64Url;
 }

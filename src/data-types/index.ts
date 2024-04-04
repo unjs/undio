@@ -1,4 +1,6 @@
 export * from "./array-buffer";
+export * from "./base64";
+export * from "./base64-url";
 export * from "./blob";
 export * from "./data-view";
 export * from "./number-array";

@@ -2,6 +2,8 @@ import { writeFileSync } from "node:fs";
 
 const types = [
   "arrayBuffer",
+  "base64",
+  "base64Url",
   "blob",
   "dataView",
   "numberArray",

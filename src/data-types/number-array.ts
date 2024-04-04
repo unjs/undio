@@ -1,3 +1,4 @@
+import { Base64, Base64Url } from "../types";
 import { assertType } from "./_utils";
 
 /**
@@ -90,4 +91,25 @@ export function numberArrayToString(numberArray: number[]): string {
 export function numberArrayToUint8Array(numberArray: number[]): Uint8Array {
   assertNumberArray(numberArray);
   return new Uint8Array(numberArray);
+}
+
+/**
+ * Convert from [Number Array][Number Array] to [Base64][Base64]
+ * @group NumberArray
+ */
+export function numberArrayToBase64(numberArray: number[]): Base64 {
+  assertNumberArray(numberArray);
+  return globalThis.btoa(String.fromCodePoint(...numberArray)) as Base64;
+}
+
+/**
+ * Convert from [Number Array][Number Array] to [Base64Url][Base64]
+ * @group NumberArray
+ */
+export function numberArrayToBase64Url(numberArray: number[]): Base64Url {
+  assertNumberArray(numberArray);
+  return numberArrayToBase64(numberArray)
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=/g, "") as Base64Url;
 }

@@ -1,3 +1,4 @@
+import { Base64, Base64Url } from "../types";
 import { assertType } from "./_utils";
 
 /**
@@ -92,4 +93,25 @@ export function dataViewToUint8Array(dataView: DataView): Uint8Array {
     dataView.byteOffset,
     dataView.byteLength,
   );
+}
+
+/**
+ * Convert from [DataView][DataView] to [Base64][Base64]
+ * @group DataView
+ */
+export function dataViewToBase64(dataView: DataView): Base64 {
+  assertDataView(dataView);
+  return new TextDecoder().decode(dataView) as Base64;
+}
+
+/**
+ * Convert from [DataView][DataView] to [Base64Url][Base64]
+ * @group DataView
+ */
+export function dataViewToBase64Url(dataView: DataView): Base64Url {
+  assertDataView(dataView);
+  return dataViewToBase64(dataView)
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=/g, "") as Base64Url;
 }

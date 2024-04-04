@@ -1,7 +1,9 @@
-import { DataType, DataTypeName } from "./types";
+import { Base64, Base64Url, DataType, DataTypeName } from "./types";
 import { detectType } from "./detect";
 import {
   _toArrayBuffer,
+  _toBase64,
+  _toBase64Url,
   _toBlob,
   _toDataView,
   _toNumberArray,
@@ -14,17 +16,20 @@ import {
 
 /**
  * Convert from any value to any supported data type
+ * @param toType - The target data type
+ * @param input - The input value
+ * @param fromType - The source data type (optional)
  */
 export function convertTo<T extends DataTypeName>(
   toType: T,
   input: DataType,
+  fromType?: DataTypeName,
 ): any {
   const _map = _to[toType];
   if (!_map) {
     throw new Error(`Conversion to ${toType} is not supported.`);
   }
-  const fromType = detectType(input);
-  return _convertTo(fromType, input, _map);
+  return _convertTo(fromType || detectType(input), input, _map);
 }
 
 /**
@@ -82,6 +87,20 @@ export const toString = (input: DataType) =>
  */
 export const toUnit8Array = (input: DataType) =>
   _convertTo<string>("Uint8Array", input, _toUint8Array);
+
+/**
+ * Convert from any value to [Base64][Base64]
+ * @group Base64
+ */
+export const toBase64 = (input: DataType) =>
+  _convertTo<Base64>("Base64", input, _toBase64);
+
+/**
+ * Convert from any value to [Base64Url][Base64]
+ * @group Base64Url
+ */
+export const toBase64Url = (input: DataType) =>
+  _convertTo<Base64Url>("Base64Url", input, _toBase64Url);
 
 function _convertTo<T extends DataType>(
   name: DataTypeName,
