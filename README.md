@@ -104,7 +104,7 @@ const type = detectType(value);
 
 ## Runtime type checking
 
-You can use `is*(input)` ans `assert*(input)` utils to validate input type.
+You can use `is*(input)` and `assert*(input)` utils to validate input type.
 
 > [!NOTE]
 > All conversion utilities use assertions for runtime type safety by default, so you don't need to manually do this.
