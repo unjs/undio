@@ -408,12 +408,6 @@ Convert from [string][string] to [ReadableStream][ReadableStream]
 
 Convert from [string][string] to [Uint8Array][Uint8Array]
 
-## Uinit8 Array
-
-### `toUnit8Array(input)`
-
-Convert from any value to [Uinit8Array][Uinit8Array]
-
 ## Uint8 Array
 
 ### `assertUint8Array(input)`
@@ -423,6 +417,10 @@ Assert that input is an instance of [Uint8Array][Uint8Array] or throw a `TypeErr
 ### `isUint8Array(input)`
 
 Test if input is an instance of [Uint8Array][Uint8Array] and return `true` or `false`.
+
+### `toUint8Array(input)`
+
+Convert from any value to [Uint8Array][Uint8Array]
 
 ### `uint8ArrayToArrayBuffer(uint8Array)`
 
@@ -452,7 +450,7 @@ Convert from [Uint8Array][Uint8Array] to [Response][Response]
 
 Convert from [Uint8Array][Uint8Array] to [String][String]
 
-### `convertTo(toType, input)`
+### `convertTo(toType, input, fromType?)`
 
 Convert from any value to any supported data type
 
