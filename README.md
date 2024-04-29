@@ -22,6 +22,7 @@
 ## 👍 Supported Types
 
 - [ArrayBuffer][ArrayBuffer]
+- [Base64][Base64]
 - [Blob][Blob]
 - [DataView][DataView]
 - [Number Array][Number Array]
