@@ -83,6 +83,7 @@ export const toString = (input: DataType) =>
 export const toUnit8Array = (input: DataType) =>
   _convertTo<string>("Uint8Array", input, _toUint8Array);
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function _convertTo<T extends DataType>(
   name: DataTypeName,
   input: DataType,
