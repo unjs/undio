@@ -1,4 +1,5 @@
-import { assertType } from "./_utils";
+import type { Base64, Base64Options } from "../types";
+import { _base64Encode, assertType } from "./_utils";
 
 /**
  * Test if input is an instance of [Blob][Blob] and return `true` or `false`.
@@ -77,4 +78,16 @@ export function blobToString(blob: Blob): Promise<string> {
 export function blobToUint8Array(blob: Blob): Promise<Uint8Array> {
   assertBlob(blob);
   return blob.arrayBuffer().then((arrayBuffer) => new Uint8Array(arrayBuffer));
+}
+
+/**
+ * Convert from [Blob][Blob] to [Base64][Base64]
+ * @group Blob
+ */
+export async function blobToBase64(
+  blob: Blob,
+  base64Options: Base64Options,
+): Promise<Base64> {
+  // assertBlob(blob);
+  return _base64Encode(await blobToUint8Array(blob), base64Options);
 }

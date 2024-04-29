@@ -1,7 +1,8 @@
-import { DataType, DataTypeName } from "./types";
+import type { Base64, DataType, DataTypeName } from "./types";
 import { detectType } from "./detect";
 import {
   _toArrayBuffer,
+  _toBase64,
   _toBlob,
   _toDataView,
   _toNumberArray,
@@ -14,6 +15,9 @@ import {
 
 /**
  * Convert from any value to any supported data type
+ * @param toType - The target data type
+ * @param input - The input value
+ * @param fromType - The source data type (optional)
  */
 export function convertTo<T extends DataTypeName>(
   toType: T,
@@ -81,6 +85,13 @@ export const toString = (input: DataType) =>
  */
 export const toUint8Array = (input: DataType) =>
   _convertTo<string>(input, _toUint8Array);
+
+/**
+ * Convert from any value to [Base64][Base64]
+ * @group Base64
+ */
+export const toBase64 = (input: DataType) =>
+  _convertTo<Base64>(input, _toBase64);
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function _convertTo<T extends DataType>(

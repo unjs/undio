@@ -1,4 +1,5 @@
-import { assertType } from "./_utils";
+import type { Base64Options } from "../types";
+import { _base64Encode, assertType } from "./_utils";
 
 /**
  * Test if input is an instance of [Uint8Array][Uint8Array] and return `true` or `false`.
@@ -94,4 +95,16 @@ export function uint8ArrayToResponse(
 export function uint8ArrayToString(uint8Array: Uint8Array): string {
   assertUint8Array(uint8Array);
   return new TextDecoder().decode(uint8Array);
+}
+
+/**
+ * Convert from [Uint8Array][Uint8Array] to [Base64][Base64]
+ * @group Uint8Array
+ */
+export function uint8ArrayToBase64(
+  uint8Array: Uint8Array,
+  base64Options?: Base64Options,
+): string {
+  assertUint8Array(uint8Array);
+  return _base64Encode(uint8Array, base64Options);
 }

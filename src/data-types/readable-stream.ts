@@ -1,4 +1,5 @@
-import { assertType } from "./_utils";
+import type { Base64, Base64Options } from "../types";
+import { _base64Encode, assertType } from "./_utils";
 
 /**
  * Test if input is an instance of [ReadableStream][ReadableStream] and return `true` or `false`.
@@ -117,4 +118,19 @@ export async function readableStreamToUint8Array(
   // assertReadableStream(readableStream);
   const arrayBuffer = await readableStreamToArrayBuffer(readableStream);
   return new Uint8Array(arrayBuffer);
+}
+
+/**
+ * Convert from [ReadableStream][ReadableStream] to [Base64][Base64]
+ * @group ReadableStream
+ */
+export async function readableStreamToBase64(
+  readableStream: ReadableStream,
+  base64Options?: Base64Options,
+): Promise<Base64> {
+  // assertReadableStream(readableStream);
+  return _base64Encode(
+    await readableStreamToUint8Array(readableStream),
+    base64Options,
+  );
 }

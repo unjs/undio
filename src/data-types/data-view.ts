@@ -1,4 +1,5 @@
-import { assertType } from "./_utils";
+import type { Base64, Base64Options } from "../types";
+import { _base64Encode, assertType } from "./_utils";
 
 /**
  * Test if input is an instance of [DataView][DataView] and return `true` or `false`.
@@ -92,4 +93,16 @@ export function dataViewToUint8Array(dataView: DataView): Uint8Array {
     dataView.byteOffset,
     dataView.byteLength,
   );
+}
+
+/**
+ * Convert from [DataView][DataView] to [Base64][Base64]
+ * @group DataView
+ */
+export function dataViewToBase64(
+  dataView: DataView,
+  base64Options?: Base64Options,
+): Base64 {
+  // assertDataView(dataView);
+  return _base64Encode(dataViewToUint8Array(dataView), base64Options);
 }

@@ -1,4 +1,5 @@
-import { assertType } from "./_utils";
+import type { Base64, Base64Options } from "../types";
+import { _base64Encode, assertType } from "./_utils";
 
 /**
  * Test if input is an instance of [Number Array][Number Array] and return `true` or `false`.
@@ -90,4 +91,16 @@ export function numberArrayToString(numberArray: number[]): string {
 export function numberArrayToUint8Array(numberArray: number[]): Uint8Array {
   assertNumberArray(numberArray);
   return new Uint8Array(numberArray);
+}
+
+/**
+ * Convert from [Number Array][Number Array] to [Base64][Base64]
+ * @group NumberArray
+ */
+export function numberArrayToBase64(
+  numberArray: number[],
+  base64Options?: Base64Options,
+): Base64 {
+  assertNumberArray(numberArray);
+  return _base64Encode(new Uint8Array(numberArray), base64Options);
 }

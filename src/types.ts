@@ -1,5 +1,6 @@
 export type DataTypeName =
   | "ArrayBuffer"
+  | "Base64"
   | "Blob"
   | "DataView"
   | "NumberArray"
@@ -10,6 +11,7 @@ export type DataTypeName =
 
 export type DataType =
   | ArrayBufferLike
+  | Base64
   | Blob
   | DataView
   | number[]
@@ -17,3 +19,6 @@ export type DataType =
   | Response
   | string
   | Uint8Array;
+
+export type Base64 = string;
+export type Base64Options = { urlSafe?: boolean };

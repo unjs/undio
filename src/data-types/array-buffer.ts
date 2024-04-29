@@ -1,4 +1,5 @@
-import { assertType } from "./_utils";
+import type { Base64, Base64Options } from "../types";
+import { _base64Encode, assertType } from "./_utils";
 
 /**
  * Test if input is an instance of [ArrayBuffer][ArrayBuffer] and return `true` or `false`.
@@ -94,4 +95,16 @@ export function arrayBufferToUint8Array(
 ): Uint8Array {
   assertArrayBuffer(arrayBuffer);
   return new Uint8Array(arrayBuffer);
+}
+
+/**
+ * Convert from [ArrayBuffer][ArrayBuffer] to [Base64][Base64]
+ * @group ArrayBuffer
+ */
+export function arrayBufferToBase64(
+  arrayBuffer: ArrayBufferLike,
+  base64Options: Base64Options,
+): Base64 {
+  assertArrayBuffer(arrayBuffer);
+  return _base64Encode(new Uint8Array(arrayBuffer), base64Options);
 }

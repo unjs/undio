@@ -1,4 +1,5 @@
-import { assertType } from "./_utils";
+import type { Base64, Base64Options } from "../types";
+import { _base64Encode, assertType } from "./_utils";
 
 /**
  * Test if input is an instance of [Response][Response] and return `true` or `false`.
@@ -84,4 +85,19 @@ export async function responseToUint8Array(
 ): Promise<Uint8Array> {
   assertResponse(response);
   return new Uint8Array(await response.arrayBuffer());
+}
+
+/**
+ * Convert from [Response][Response] to [Base64][Base64]
+ * @group Response
+ */
+export async function responseToBase64(
+  response: Response,
+  base64Options?: Base64Options,
+): Promise<Base64> {
+  assertResponse(response);
+  return _base64Encode(
+    new Uint8Array(await response.arrayBuffer()),
+    base64Options,
+  );
 }

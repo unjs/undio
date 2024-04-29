@@ -22,6 +22,7 @@
 ## 👍 Supported Types
 
 - [ArrayBuffer][ArrayBuffer]
+- [Base64][Base64]
 - [Blob][Blob]
 - [DataView][DataView]
 - [Number Array][Number Array]
@@ -132,6 +133,10 @@ assertArrayBuffer(value); // Throws an error if value is not ArrayBuffer
 
 ## Array Buffer
 
+### `arrayBufferToBase64(arrayBuffer, base64Options)`
+
+Convert from [ArrayBuffer][ArrayBuffer] to [Base64][Base64]
+
 ### `arrayBufferToBlob(arrayBuffer, options?)`
 
 Convert from [ArrayBuffer][ArrayBuffer] to [Blob][Blob]
@@ -172,6 +177,52 @@ Test if input is an instance of [ArrayBuffer][ArrayBuffer] and return `true` or 
 
 Convert from any value to [ArrayBuffer][ArrayBuffer]
 
+## Base64
+
+### `assertBase64(input, opts?)`
+
+Assert that input is an instance of [String][String] and matches the [Base64][Base64] pattern or throw a `TypeError`.
+
+### `base64ToArrayBuffer(string, base64Options?)`
+
+Convert from [Base64][Base64] to [ArrayBuffer][ArrayBuffer]
+
+### `base64ToBlob(string, opts?)`
+
+Convert from [Base64][Base64] to [Blob][Blob]
+
+### `base64ToDataView(string, base64Options?)`
+
+Convert from [Base64][Base64] to [DataView][DataView]
+
+### `base64ToNumberArray(string, base64Options?)`
+
+Convert from [Base64][Base64] to [Number Array][Number Array]
+
+### `base64ToReadableStream(string, base64Options?)`
+
+Convert from [Base64][Base64] to [ReadableStream][ReadableStream]
+
+### `base64ToResponse(string)`
+
+Convert from [Base64][Base64] to [Response][Response]
+
+### `base64ToString(string, opts?)`
+
+Convert from [Base64][Base64] to [String][String]
+
+### `base64ToUint8Array(string, base64Options?)`
+
+Convert from [Base64][Base64] to [Uint8Array][Uint8Array]
+
+### `isBase64(input, base64Options?)`
+
+Test if input is string and matches the [Base64][Base64] pattern and return `true` or `false`.
+
+### `toBase64(input)`
+
+Convert from any value to [Base64][Base64]
+
 ## Blob
 
 ### `assertBlob(input)`
@@ -181,6 +232,10 @@ Assert that input is an instance of [Blob][Blob] or throw a `TypeError`.
 ### `blobToArrayBuffer(blob)`
 
 Convert from [Blob][Blob] to [ArrayBuffer][ArrayBuffer]
+
+### `blobToBase64(blob, base64Options)`
+
+Convert from [Blob][Blob] to [Base64][Base64]
 
 ### `blobToDataView(blob)`
 
@@ -223,6 +278,10 @@ Assert that input is an instance of [DataView][DataView] or throw a `TypeError`.
 ### `dataViewToArrayBuffer(dataView)`
 
 Convert from [DataView][DataView] to [ArrayBuffer][ArrayBuffer]
+
+### `dataViewToBase64(dataView, base64Options?)`
+
+Convert from [DataView][DataView] to [Base64][Base64]
 
 ### `dataViewToBlob(dataView, options?)`
 
@@ -270,6 +329,10 @@ Test if input is an instance of [Number Array][Number Array] and return `true` o
 
 Convert from [Number Array][Number Array] to [ArrayBuffer][ArrayBuffer]
 
+### `numberArrayToBase64(numberArray, base64Options?)`
+
+Convert from [Number Array][Number Array] to [Base64][Base64]
+
 ### `numberArrayToBlob(numberArray, options?)`
 
 Convert from [Number Array][Number Array] to [Blob][Blob]
@@ -307,6 +370,10 @@ Test if input is an instance of [ReadableStream][ReadableStream] and return `tru
 ### `readableStreamToArrayBuffer(readableStream)`
 
 Convert from [ReadableStream][ReadableStream] to [ArrayBuffer][ArrayBuffer]
+
+### `readableStreamToBase64(readableStream, base64Options?)`
+
+Convert from [ReadableStream][ReadableStream] to [Base64][Base64]
 
 ### `readableStreamToBlob(readableStream, options?)`
 
@@ -350,6 +417,10 @@ Test if input is an instance of [Response][Response] and return `true` or `false
 
 Convert from [Response][Response] to [ArrayBuffer][ArrayBuffer]
 
+### `responseToBase64(response, base64Options?)`
+
+Convert from [Response][Response] to [Base64][Base64]
+
 ### `responseToBlob(response)`
 
 Convert from [Response][Response] to [Blob][Blob]
@@ -388,6 +459,10 @@ Test if input is an instance of [String][String] and return `true` or `false`.
 
 Convert from [string][string] to [ArrayBuffer][ArrayBuffer]
 
+### `stringToBase64(string, opts?)`
+
+Convert from [string][string] to [Base64][Base64]
+
 ### `stringToBlob(string, options?)`
 
 Convert from [string][string] to [Blob][Blob]
@@ -425,6 +500,10 @@ Convert from any value to [Uint8Array][Uint8Array]
 ### `uint8ArrayToArrayBuffer(uint8Array)`
 
 Convert from [Uint8Array][Uint8Array] to [ArrayBuffer][ArrayBuffer]
+
+### `uint8ArrayToBase64(uint8Array, base64Options?)`
+
+Convert from [Uint8Array][Uint8Array] to [Base64][Base64]
 
 ### `uint8ArrayToBlob(uint8Array, options?)`
 
@@ -506,6 +585,7 @@ _🤖 auto updated with [automd](https://automd.unjs.io)_
 <!-- /automd -->
 
 [ArrayBuffer]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer
+[Base64]: https://developer.mozilla.org/en-US/docs/Glossary/Base64
 [Blob]: https://developer.mozilla.org/en-US/docs/Web/API/Blob
 [DataView]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView
 [Number Array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array

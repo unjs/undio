@@ -1,4 +1,5 @@
-import { assertType } from "./_utils";
+import type { Base64, Base64Options } from "../types";
+import { _base64Encode, assertType } from "./_utils";
 
 /**
  * Test if input is an instance of [String][String] and return `true` or `false`.
@@ -82,4 +83,19 @@ export function stringToResponse(
 export function stringToUint8Array(string: string): Uint8Array {
   assertString(string);
   return new Uint8Array(new TextEncoder().encode(string));
+}
+
+/**
+ * Convert from [string][string] to [Base64][Base64]
+ * @param encoding - The encoding to use. Default is `utf8`.
+ * @group String
+ */
+export function stringToBase64(
+  string: string,
+  opts?: Base64Options & { encoding?: "utf8" },
+): Base64 {
+  assertString(string);
+  return opts?.encoding === "utf8"
+    ? _base64Encode(new TextEncoder().encode(string), opts)
+    : _base64Encode(string, opts);
 }
