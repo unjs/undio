@@ -1,6 +1,16 @@
 import { expect, it, describe } from "vitest";
 import { detectType } from "../src/detect";
-import { convertTo } from "../src/convert";
+import {
+  convertTo,
+  toArrayBuffer,
+  toBlob,
+  toDataView,
+  toNumberArray,
+  toReadableStream,
+  toResponse,
+  toString,
+  toUint8Array,
+} from "../src/convert";
 import type { DataType, DataTypeName } from "../src/types";
 
 const fixtures: Record<DataTypeName, DataType[]> = {
@@ -14,6 +24,17 @@ const fixtures: Record<DataTypeName, DataType[]> = {
   Response: [new Response()],
   String: ["string"],
   Uint8Array: [new Uint8Array()],
+};
+
+const convertFunctions = {
+  toArrayBuffer,
+  toBlob,
+  toDataView,
+  toNumberArray,
+  toReadableStream,
+  toResponse,
+  toString,
+  toUint8Array,
 };
 
 const typeNames = Object.keys(fixtures) as DataTypeName[];
@@ -40,6 +61,21 @@ describe("convertTo", () => {
             ["Base64", "Base64Url"].includes(to)
               ? expect(detectType(output)).toBe("String")
               : expect(detectType(output)).toBe(to);
+          });
+        }
+      });
+    }
+  }
+});
+
+describe("toType", () => {
+  for (const from of typeNames) {
+    for (const to of typeNames) {
+      describe.skipIf(from === "ReadableStream")(`${from} to ${to}`, () => {
+        for (const input of fixtures[from]) {
+          it(`should convert ${from} to ${to}`, async () => {
+            const output = await convertFunctions[`to${to}`](input);
+            expect(detectType(output)).toBe(to);
           });
         }
       });

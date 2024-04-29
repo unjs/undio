@@ -104,7 +104,7 @@ const type = detectType(value);
 
 ## Runtime type checking
 
-You can use `is*(input)` ans `assert*(input)` utils to validate input type.
+You can use `is*(input)` and `assert*(input)` utils to validate input type.
 
 > [!NOTE]
 > All conversion utilities use assertions for runtime type safety by default, so you don't need to manually do this.
@@ -564,12 +564,6 @@ Convert from [string][string] to [ReadableStream][ReadableStream]
 
 Convert from [string][string] to [Uint8Array][Uint8Array]
 
-## Uinit8 Array
-
-### `toUnit8Array(input)`
-
-Convert from any value to [Uinit8Array][Uinit8Array]
-
 ## Uint8 Array
 
 ### `assertUint8Array(input)`
@@ -579,6 +573,10 @@ Assert that input is an instance of [Uint8Array][Uint8Array] or throw a `TypeErr
 ### `isUint8Array(input)`
 
 Test if input is an instance of [Uint8Array][Uint8Array] and return `true` or `false`.
+
+### `toUint8Array(input)`
+
+Convert from any value to [Uint8Array][Uint8Array]
 
 ### `uint8ArrayToArrayBuffer(uint8Array)`
 
