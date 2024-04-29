@@ -186,10 +186,6 @@ Assert that input is an instance of [String][String] and matches the [Base64][Ba
 
 Convert from [Base64][Base64] to [ArrayBuffer][ArrayBuffer]
 
-### `base64ToBase64Url(string, base64Options?)`
-
-Convert from [Base64][Base64] to [Base64Url][Base64]
-
 ### `base64ToBlob(string, opts?)`
 
 Convert from [Base64][Base64] to [Blob][Blob]

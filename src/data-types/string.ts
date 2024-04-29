@@ -92,7 +92,7 @@ export function stringToUint8Array(string: string): Uint8Array {
  */
 export function stringToBase64(
   string: string,
-  opts?: Base64Options & { encoding?: "ascii" | "utf8" },
+  opts?: Base64Options & { encoding?: "utf8" },
 ): Base64 {
   assertString(string);
   return opts?.encoding === "utf8"

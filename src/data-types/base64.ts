@@ -3,7 +3,15 @@ import { assertType } from "./_utils";
 
 const base64Regex =
   /^(?:[\d+/A-Za-z]{4})*(?:[\d+/A-Za-z]{2}==|[\d+/A-Za-z]{3}=)?$/;
+
 const base64URLRegex = /^[\w-]*$/;
+
+function _decodeURLSafe(string: Base64): Base64 {
+  return string
+    .replace(/-/g, "+")
+    .replace(/_/g, "/")
+    .padEnd(string.length + ((4 - (string.length % 4)) % 4), "=");
+}
 
 /**
  * Test if input is string and matches the [Base64][Base64] pattern and return `true` or `false`.
@@ -28,21 +36,6 @@ export const assertBase64 = (input: unknown, opts?: Base64Options) =>
   assertType("Base64", input, (val) => isBase64(val, opts));
 
 /**
- * Convert from [Base64][Base64] to [Base64Url][Base64]
- * @group Base64
- */
-export function base64ToBase64Url(
-  string: Base64,
-  base64Options?: Base64Options,
-): Base64 {
-  assertBase64(string, base64Options);
-  return string
-    .replace(/\+/g, "-")
-    .replace(/\//g, "_")
-    .replace(/=+$/, "") as Base64;
-}
-
-/**
  * Convert from [Base64][Base64] to [String][String]
  * @param encoding - The encoding to use. Default is `utf8`.
  * @group Base64
@@ -55,7 +48,7 @@ export function base64ToString(
     return new TextDecoder().decode(base64ToUint8Array(string, opts));
   }
   assertBase64(string, opts);
-  return globalThis.atob(string);
+  return globalThis.atob(opts?.urlSafe ? _decodeURLSafe(string) : string);
 }
 
 /**
@@ -67,15 +60,8 @@ export function base64ToUint8Array(
   base64Options?: Base64Options,
 ): Uint8Array {
   assertBase64(string, base64Options);
-  let encoded = string;
-  if (base64Options?.urlSafe) {
-    encoded = string
-      .replace(/-/g, "+")
-      .replace(/_/g, "/")
-      .padEnd(string.length + ((4 - (string.length % 4)) % 4), "=");
-  }
   return Uint8Array.from(
-    globalThis.atob(encoded),
+    globalThis.atob(base64Options?.urlSafe ? _decodeURLSafe(string) : string),
     (c) => c.codePointAt(0) as number,
   );
 }
