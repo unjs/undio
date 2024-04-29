@@ -1,5 +1,5 @@
-import { Base64, Base64Url } from "../types";
-import { assertType } from "./_utils";
+import type { Base64, Base64Options } from "../types";
+import { _base64Encode, assertType } from "./_utils";
 
 /**
  * Test if input is an instance of [ReadableStream][ReadableStream] and return `true` or `false`.
@@ -126,23 +126,8 @@ export async function readableStreamToUint8Array(
  */
 export async function readableStreamToBase64(
   readableStream: ReadableStream,
+  opts?: Base64Options,
 ): Promise<Base64> {
-  assertReadableStream(readableStream);
-  const uint8Array = await readableStreamToUint8Array(readableStream);
-  return globalThis.btoa(String.fromCodePoint(...uint8Array)) as Base64;
-}
-
-/**
- * Convert from [ReadableStream][ReadableStream] to [Base64Url][Base64]
- * @group ReadableStream
- */
-export async function readableStreamToBase64Url(
-  readableStream: ReadableStream,
-): Promise<Base64Url> {
-  assertReadableStream(readableStream);
-  const base64 = await readableStreamToBase64(readableStream);
-  return base64
-    .replace(/\+/g, "-")
-    .replace(/\//g, "_")
-    .replace(/=/g, "") as Base64Url;
+  // assertReadableStream(readableStream);
+  return _base64Encode(await readableStreamToUint8Array(readableStream), opts);
 }

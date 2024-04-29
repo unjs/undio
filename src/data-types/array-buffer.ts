@@ -1,5 +1,5 @@
-import { Base64, Base64Url } from "../types";
-import { assertType } from "./_utils";
+import type { Base64, Base64Options } from "../types";
+import { _base64Encode, assertType } from "./_utils";
 
 /**
  * Test if input is an instance of [ArrayBuffer][ArrayBuffer] and return `true` or `false`.
@@ -101,24 +101,10 @@ export function arrayBufferToUint8Array(
  * Convert from [ArrayBuffer][ArrayBuffer] to [Base64][Base64]
  * @group ArrayBuffer
  */
-export function arrayBufferToBase64(arrayBuffer: ArrayBufferLike): Base64 {
-  assertArrayBuffer(arrayBuffer);
-  return globalThis.btoa(
-    String.fromCodePoint(...new Uint8Array(arrayBuffer)),
-  ) as Base64;
-}
-
-/**
- * Convert from [ArrayBuffer][ArrayBuffer] to [Base64Url][Base64]
- * @group ArrayBuffer
- */
-export function arrayBufferToBase64Url(
+export function arrayBufferToBase64(
   arrayBuffer: ArrayBufferLike,
-): Base64Url {
+  base64Options: Base64Options,
+): Base64 {
   assertArrayBuffer(arrayBuffer);
-  return globalThis
-    .btoa(String.fromCodePoint(...new Uint8Array(arrayBuffer)))
-    .replace(/\//g, "_")
-    .replace(/\+/g, "-")
-    .replace(/=+$/, "") as Base64Url;
+  return _base64Encode(new Uint8Array(arrayBuffer), base64Options);
 }

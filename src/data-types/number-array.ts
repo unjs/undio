@@ -1,5 +1,5 @@
-import { Base64, Base64Url } from "../types";
-import { assertType } from "./_utils";
+import type { Base64, Base64Options } from "../types";
+import { _base64Encode, assertType } from "./_utils";
 
 /**
  * Test if input is an instance of [Number Array][Number Array] and return `true` or `false`.
@@ -97,19 +97,10 @@ export function numberArrayToUint8Array(numberArray: number[]): Uint8Array {
  * Convert from [Number Array][Number Array] to [Base64][Base64]
  * @group NumberArray
  */
-export function numberArrayToBase64(numberArray: number[]): Base64 {
+export function numberArrayToBase64(
+  numberArray: number[],
+  opts?: Base64Options,
+): Base64 {
   assertNumberArray(numberArray);
-  return globalThis.btoa(String.fromCodePoint(...numberArray)) as Base64;
-}
-
-/**
- * Convert from [Number Array][Number Array] to [Base64Url][Base64]
- * @group NumberArray
- */
-export function numberArrayToBase64Url(numberArray: number[]): Base64Url {
-  assertNumberArray(numberArray);
-  return numberArrayToBase64(numberArray)
-    .replace(/\+/g, "-")
-    .replace(/\//g, "_")
-    .replace(/=/g, "") as Base64Url;
+  return _base64Encode(new Uint8Array(numberArray), opts);
 }

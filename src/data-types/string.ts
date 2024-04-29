@@ -1,5 +1,5 @@
-import { Base64, Base64Url } from "../types";
-import { assertType } from "./_utils";
+import type { Base64, Base64Options } from "../types";
+import { _base64Encode, assertType } from "./_utils";
 
 /**
  * Test if input is an instance of [String][String] and return `true` or `false`.
@@ -92,26 +92,10 @@ export function stringToUint8Array(string: string): Uint8Array {
  */
 export function stringToBase64(
   string: string,
-  encoding?: "ascii" | "utf8",
+  opts?: Base64Options & { encoding?: "ascii" | "utf8" },
 ): Base64 {
   assertString(string);
-  if (encoding === "ascii") {
-    return globalThis.btoa(string) as Base64;
-  }
-  return globalThis.btoa(
-    String.fromCodePoint(...new TextEncoder().encode(string)),
-  ) as Base64;
-}
-
-/**
- * Convert from [string][string] to [Base64Url][Base64]
- * @group String
- */
-export function stringToBase64Url(string: string): Base64Url {
-  assertString(string);
-  return globalThis
-    .btoa(String.fromCodePoint(...new TextEncoder().encode(string)))
-    .replace(/\+/g, "-")
-    .replace(/\//g, "_")
-    .replace(/=+$/, "") as Base64Url;
+  return opts?.encoding === "utf8"
+    ? _base64Encode(new TextEncoder().encode(string), opts)
+    : _base64Encode(string, opts);
 }

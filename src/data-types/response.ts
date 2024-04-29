@@ -1,5 +1,5 @@
-import { Base64 } from "../types";
-import { assertType } from "./_utils";
+import type { Base64, Base64Options } from "../types";
+import { _base64Encode, assertType } from "./_utils";
 
 /**
  * Test if input is an instance of [Response][Response] and return `true` or `false`.
@@ -91,21 +91,10 @@ export async function responseToUint8Array(
  * Convert from [Response][Response] to [Base64][Base64]
  * @group Response
  */
-export async function responseToBase64(response: Response): Promise<Base64> {
+export async function responseToBase64(
+  response: Response,
+  opts?: Base64Options,
+): Promise<Base64> {
   assertResponse(response);
-  return globalThis.btoa(
-    String.fromCodePoint(...new Uint8Array(await response.arrayBuffer())),
-  ) as Base64;
-}
-
-/**
- * Convert from [Response][Response] to [Base64Url][Base64]
- * @group Response
- */
-export async function responseToBase64Url(response: Response): Promise<string> {
-  assertResponse(response);
-  return (await responseToBase64(response))
-    .replace(/\+/g, "-")
-    .replace(/\//g, "_")
-    .replace(/=/g, "");
+  return _base64Encode(new Uint8Array(await response.arrayBuffer()), opts);
 }

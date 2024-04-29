@@ -3,6 +3,7 @@ import { detectType } from "../src/detect";
 import {
   convertTo,
   toArrayBuffer,
+  toBase64,
   toBlob,
   toDataView,
   toNumberArray,
@@ -15,8 +16,7 @@ import type { DataType, DataTypeName } from "../src/types";
 
 const fixtures: Record<DataTypeName, DataType[]> = {
   ArrayBuffer: [new ArrayBuffer(1)],
-  Base64: ["SGVsbG8sIFdvcmxkIQ=="],
-  Base64Url: ["aHR0cDovLysvKz0"],
+  Base64: ["SGVsbG8sIFdvcmxkIQ==", "aHR0cDovLysvKz0"],
   Blob: [new Blob()],
   DataView: [new DataView(new ArrayBuffer(1))],
   NumberArray: [[]],
@@ -35,6 +35,7 @@ const convertFunctions = {
   toResponse,
   toString,
   toUint8Array,
+  toBase64,
 };
 
 const typeNames = Object.keys(fixtures) as DataTypeName[];
@@ -58,9 +59,7 @@ describe("convertTo", () => {
         for (const input of fixtures[from]) {
           it(`should convert ${from} to ${to}`, async () => {
             const output = await convertTo(to, input);
-            ["Base64", "Base64Url"].includes(to)
-              ? expect(detectType(output)).toBe("String")
-              : expect(detectType(output)).toBe(to);
+            expect(detectType(output)).toBe(to === "Base64" ? "String" : to);
           });
         }
       });
@@ -75,7 +74,7 @@ describe("toType", () => {
         for (const input of fixtures[from]) {
           it(`should convert ${from} to ${to}`, async () => {
             const output = await convertFunctions[`to${to}`](input);
-            expect(detectType(output)).toBe(to);
+            expect(detectType(output)).toBe(to === "Base64" ? "String" : to);
           });
         }
       });

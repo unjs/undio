@@ -1,5 +1,5 @@
-import { Base64, Base64Url } from "../types";
-import { assertType } from "./_utils";
+import type { Base64, Base64Options } from "../types";
+import { _base64Encode, assertType } from "./_utils";
 
 /**
  * Test if input is an instance of [Blob][Blob] and return `true` or `false`.
@@ -84,26 +84,10 @@ export function blobToUint8Array(blob: Blob): Promise<Uint8Array> {
  * Convert from [Blob][Blob] to [Base64][Base64]
  * @group Blob
  */
-export function blobToBase64(blob: Blob): Promise<Base64> {
-  assertBlob(blob);
-  return blob.arrayBuffer().then((arrayBuffer) => {
-    const uint8Array = new Uint8Array(arrayBuffer);
-    return globalThis.btoa(String.fromCodePoint(...uint8Array)) as Base64;
-  });
-}
-
-/**
- * Convert from [Blob][Blob] to [Base64Url][Base64]
- * @group Blob
- */
-export function blobToBase64Url(blob: Blob): Promise<Base64Url> {
-  assertBlob(blob);
-  return blob.arrayBuffer().then((arrayBuffer) => {
-    const uint8Array = new Uint8Array(arrayBuffer);
-    return globalThis
-      .btoa(String.fromCodePoint(...uint8Array))
-      .replace(/\+/g, "-")
-      .replace(/\//g, "_")
-      .replace(/=/g, "") as Base64Url;
-  });
+export async function blobToBase64(
+  blob: Blob,
+  base64Options: Base64Options,
+): Promise<Base64> {
+  // assertBlob(blob);
+  return _base64Encode(await blobToUint8Array(blob), base64Options);
 }
