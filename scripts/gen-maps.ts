@@ -21,7 +21,9 @@ for (const to of types) {
   for (const from of types) {
     if (to === from) {
       code.push(
-        `  ${upperFirst(from)}: (input: unknown) => (${toAssertName}(input), input),`,
+        `  ${upperFirst(
+          from,
+        )}: (input: unknown) => (${toAssertName}(input), input),`,
       );
       continue;
     }
