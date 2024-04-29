@@ -1,4 +1,4 @@
-import type { Base64, Base64Options } from "../types";
+import type { Base64Options } from "../types";
 import { _base64Encode, assertType } from "./_utils";
 
 /**
