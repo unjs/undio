@@ -85,7 +85,7 @@ describe("toType", () => {
 describe("base64 decoding", async () => {
   const base64Example = await convertTo("Base64", new Uint8Array([0, 1, 2, 3]));
   for (const to of typeNames) {
-    describe.skipIf(to === "Base64")(`Base64 to ${to}`, () => {
+    describe(`Base64 to ${to}`, () => {
       it(`should convert Base64 to ${to}`, async () => {
         const encodedTo = await convertTo(to, base64Example, "Base64");
         const decoded = await convertTo("Uint8Array", encodedTo, to);
