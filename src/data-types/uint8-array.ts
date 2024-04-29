@@ -103,8 +103,8 @@ export function uint8ArrayToString(uint8Array: Uint8Array): string {
  */
 export function uint8ArrayToBase64(
   uint8Array: Uint8Array,
-  opts?: Base64Options,
+  base64Options?: Base64Options,
 ): string {
   assertUint8Array(uint8Array);
-  return _base64Encode(uint8Array, opts);
+  return _base64Encode(uint8Array, base64Options);
 }

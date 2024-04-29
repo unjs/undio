@@ -182,11 +182,11 @@ Convert from any value to [ArrayBuffer][ArrayBuffer]
 
 Assert that input is an instance of [String][String] and matches the [Base64][Base64] pattern or throw a `TypeError`.
 
-### `base64ToArrayBuffer(string, opts?)`
+### `base64ToArrayBuffer(string, base64Options?)`
 
 Convert from [Base64][Base64] to [ArrayBuffer][ArrayBuffer]
 
-### `base64ToBase64Url(string, opts?)`
+### `base64ToBase64Url(string, base64Options?)`
 
 Convert from [Base64][Base64] to [Base64Url][Base64]
 
@@ -194,15 +194,15 @@ Convert from [Base64][Base64] to [Base64Url][Base64]
 
 Convert from [Base64][Base64] to [Blob][Blob]
 
-### `base64ToDataView(string, opts?)`
+### `base64ToDataView(string, base64Options?)`
 
 Convert from [Base64][Base64] to [DataView][DataView]
 
-### `base64ToNumberArray(string, opts?)`
+### `base64ToNumberArray(string, base64Options?)`
 
 Convert from [Base64][Base64] to [Number Array][Number Array]
 
-### `base64ToReadableStream(string, opts?)`
+### `base64ToReadableStream(string, base64Options?)`
 
 Convert from [Base64][Base64] to [ReadableStream][ReadableStream]
 
@@ -214,11 +214,11 @@ Convert from [Base64][Base64] to [Response][Response]
 
 Convert from [Base64][Base64] to [String][String]
 
-### `base64ToUint8Array(string, opts?)`
+### `base64ToUint8Array(string, base64Options?)`
 
 Convert from [Base64][Base64] to [Uint8Array][Uint8Array]
 
-### `isBase64(input, opts?)`
+### `isBase64(input, base64Options?)`
 
 Test if input is string and matches the [Base64][Base64] pattern and return `true` or `false`.
 
@@ -282,7 +282,7 @@ Assert that input is an instance of [DataView][DataView] or throw a `TypeError`.
 
 Convert from [DataView][DataView] to [ArrayBuffer][ArrayBuffer]
 
-### `dataViewToBase64(dataView, opts)`
+### `dataViewToBase64(dataView, base64Options?)`
 
 Convert from [DataView][DataView] to [Base64][Base64]
 
@@ -332,7 +332,7 @@ Test if input is an instance of [Number Array][Number Array] and return `true` o
 
 Convert from [Number Array][Number Array] to [ArrayBuffer][ArrayBuffer]
 
-### `numberArrayToBase64(numberArray, opts?)`
+### `numberArrayToBase64(numberArray, base64Options?)`
 
 Convert from [Number Array][Number Array] to [Base64][Base64]
 
@@ -374,7 +374,7 @@ Test if input is an instance of [ReadableStream][ReadableStream] and return `tru
 
 Convert from [ReadableStream][ReadableStream] to [ArrayBuffer][ArrayBuffer]
 
-### `readableStreamToBase64(readableStream, opts?)`
+### `readableStreamToBase64(readableStream, base64Options?)`
 
 Convert from [ReadableStream][ReadableStream] to [Base64][Base64]
 
@@ -420,7 +420,7 @@ Test if input is an instance of [Response][Response] and return `true` or `false
 
 Convert from [Response][Response] to [ArrayBuffer][ArrayBuffer]
 
-### `responseToBase64(response, opts?)`
+### `responseToBase64(response, base64Options?)`
 
 Convert from [Response][Response] to [Base64][Base64]
 
@@ -504,7 +504,7 @@ Convert from any value to [Uint8Array][Uint8Array]
 
 Convert from [Uint8Array][Uint8Array] to [ArrayBuffer][ArrayBuffer]
 
-### `uint8ArrayToBase64(uint8Array, opts?)`
+### `uint8ArrayToBase64(uint8Array, base64Options?)`
 
 Convert from [Uint8Array][Uint8Array] to [Base64][Base64]
 

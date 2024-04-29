@@ -11,11 +11,11 @@ const base64URLRegex = /^[\w-]*$/;
  */
 export function isBase64(
   input: unknown,
-  opts?: Base64Options,
+  base64Options?: Base64Options,
 ): input is Base64 {
   return (
     typeof input === "string" &&
-    (opts?.urlSafe ? base64URLRegex : base64Regex).test(input)
+    (base64Options?.urlSafe ? base64URLRegex : base64Regex).test(input)
   );
 }
 
@@ -33,9 +33,9 @@ export const assertBase64 = (input: unknown, opts?: Base64Options) =>
  */
 export function base64ToBase64Url(
   string: Base64,
-  opts?: Base64Options,
+  base64Options?: Base64Options,
 ): Base64 {
-  assertBase64(string, opts);
+  assertBase64(string, base64Options);
   return string
     .replace(/\+/g, "-")
     .replace(/\//g, "_")
@@ -64,11 +64,11 @@ export function base64ToString(
  */
 export function base64ToUint8Array(
   string: Base64,
-  opts?: Base64Options,
+  base64Options?: Base64Options,
 ): Uint8Array {
-  assertBase64(string, opts);
+  assertBase64(string, base64Options);
   let encoded = string;
-  if (opts?.urlSafe) {
+  if (base64Options?.urlSafe) {
     encoded = string
       .replace(/-/g, "+")
       .replace(/_/g, "/")
@@ -86,10 +86,10 @@ export function base64ToUint8Array(
  */
 export function base64ToArrayBuffer(
   string: Base64,
-  opts?: Base64Options,
+  base64Options?: Base64Options,
 ): ArrayBufferLike {
   // assertBase64(string);
-  return base64ToUint8Array(string, opts).buffer;
+  return base64ToUint8Array(string, base64Options).buffer;
 }
 
 /**
@@ -110,10 +110,10 @@ export function base64ToBlob(
  */
 export function base64ToDataView(
   string: Base64,
-  opts?: Base64Options,
+  base64Options?: Base64Options,
 ): DataView {
   // assertBase64(string);
-  return new DataView(base64ToArrayBuffer(string, opts));
+  return new DataView(base64ToArrayBuffer(string, base64Options));
 }
 
 /**
@@ -122,10 +122,10 @@ export function base64ToDataView(
  */
 export function base64ToNumberArray(
   string: Base64,
-  opts?: Base64Options,
+  base64Options?: Base64Options,
 ): number[] {
   // assertBase64(string);
-  return [...base64ToUint8Array(string, opts)];
+  return [...base64ToUint8Array(string, base64Options)];
 }
 
 /**
@@ -134,12 +134,12 @@ export function base64ToNumberArray(
  */
 export function base64ToReadableStream(
   string: Base64,
-  opts?: Base64Options,
+  base64Options?: Base64Options,
 ): ReadableStream<Uint8Array> {
   // assertBase64(string);
   return new ReadableStream({
     start(controller) {
-      controller.enqueue(base64ToUint8Array(string, opts));
+      controller.enqueue(base64ToUint8Array(string, base64Options));
       controller.close();
     },
   });

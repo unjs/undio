@@ -14,12 +14,12 @@ export function assertType<T>(
 
 export function _base64Encode(
   data: Uint8Array | string,
-  opts?: Base64Options,
+  base64Options?: Base64Options,
 ): Base64 {
   let encoded = btoa(
     typeof data === "string" ? data : String.fromCodePoint(...data),
   );
-  if (opts?.urlSafe) {
+  if (base64Options?.urlSafe) {
     encoded = encoded
       .replace(/\+/g, "-")
       .replace(/\//g, "_")

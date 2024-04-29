@@ -101,8 +101,8 @@ export function dataViewToUint8Array(dataView: DataView): Uint8Array {
  */
 export function dataViewToBase64(
   dataView: DataView,
-  opts: Base64Options,
+  base64Options?: Base64Options,
 ): Base64 {
   // assertDataView(dataView);
-  return _base64Encode(dataViewToUint8Array(dataView), opts);
+  return _base64Encode(dataViewToUint8Array(dataView), base64Options);
 }

@@ -99,8 +99,8 @@ export function numberArrayToUint8Array(numberArray: number[]): Uint8Array {
  */
 export function numberArrayToBase64(
   numberArray: number[],
-  opts?: Base64Options,
+  base64Options?: Base64Options,
 ): Base64 {
   assertNumberArray(numberArray);
-  return _base64Encode(new Uint8Array(numberArray), opts);
+  return _base64Encode(new Uint8Array(numberArray), base64Options);
 }

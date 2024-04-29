@@ -126,8 +126,11 @@ export async function readableStreamToUint8Array(
  */
 export async function readableStreamToBase64(
   readableStream: ReadableStream,
-  opts?: Base64Options,
+  base64Options?: Base64Options,
 ): Promise<Base64> {
   // assertReadableStream(readableStream);
-  return _base64Encode(await readableStreamToUint8Array(readableStream), opts);
+  return _base64Encode(
+    await readableStreamToUint8Array(readableStream),
+    base64Options,
+  );
 }

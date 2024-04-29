@@ -93,8 +93,11 @@ export async function responseToUint8Array(
  */
 export async function responseToBase64(
   response: Response,
-  opts?: Base64Options,
+  base64Options?: Base64Options,
 ): Promise<Base64> {
   assertResponse(response);
-  return _base64Encode(new Uint8Array(await response.arrayBuffer()), opts);
+  return _base64Encode(
+    new Uint8Array(await response.arrayBuffer()),
+    base64Options,
+  );
 }
