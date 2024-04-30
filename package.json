@@ -1,6 +1,6 @@
 {
   "name": "undio",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "repository": "unjs/undio",
   "license": "MIT",
@@ -16,7 +16,9 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "pnpm gen-maps && unbuild",
     "dev": "vitest dev",

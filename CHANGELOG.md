@@ -1,6 +1,35 @@
 # Changelog
 
 
+## v0.1.1
+
+[compare changes](https://github.com/unjs/undio/compare/v0.1.0...v0.1.1)
+
+### 🚀 Enhancements
+
+- Add `Base64` type support ([#8](https://github.com/unjs/undio/pull/8))
+
+### 🩹 Fixes
+
+- Fix `toType` mapping ([#9](https://github.com/unjs/undio/pull/9))
+
+### 📖 Documentation
+
+- Fix typo in readme ([#11](https://github.com/unjs/undio/pull/11))
+
+### 🏡 Chore
+
+- **release:** V0.1.0 ([2e69367](https://github.com/unjs/undio/commit/2e69367))
+- Update repo ([355cd94](https://github.com/unjs/undio/commit/355cd94))
+- Update deps ([27a82f5](https://github.com/unjs/undio/commit/27a82f5))
+- Lint ([6aab4bf](https://github.com/unjs/undio/commit/6aab4bf))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Jan-Henrik Damaschke <jdamaschke@outlook.de>
+- Sandro Circi ([@Sandros94](http://github.com/Sandros94))
+
 ## v0.1.0
 
 [compare changes](https://github.com/unjs/undio/compare/v0.0.1...v0.1.0)
