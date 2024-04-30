@@ -5,7 +5,7 @@ import { _base64Encode, assertType } from "./_utils";
  * Test if input is an instance of [Uint8Array][Uint8Array] and return `true` or `false`.
  * @group Uint8Array
  */
-export function isUint8Array(input: any): input is Uint8Array {
+export function isUint8Array(input: unknown): input is Uint8Array {
   return input instanceof Uint8Array;
 }
 

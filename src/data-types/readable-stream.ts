@@ -5,7 +5,7 @@ import { _base64Encode, assertType } from "./_utils";
  * Test if input is an instance of [ReadableStream][ReadableStream] and return `true` or `false`.
  * @group ReadableStream
  */
-export function isReadableStream(input: any): input is ReadableStream {
+export function isReadableStream(input: unknown): input is ReadableStream {
   return input instanceof ReadableStream;
 }
 

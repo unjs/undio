@@ -5,7 +5,7 @@ import { _base64Encode, assertType } from "./_utils";
  * Test if input is an instance of [DataView][DataView] and return `true` or `false`.
  * @group DataView
  */
-export function isDataView(input: any): input is DataView {
+export function isDataView(input: unknown): input is DataView {
   return input instanceof DataView;
 }
 

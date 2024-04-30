@@ -1,6 +1,5 @@
-import type { Base64, DataType, DataTypeName } from "./types";
-import { detectType } from "./detect";
 import {
+  _to,
   _toArrayBuffer,
   _toBase64,
   _toBlob,
@@ -10,8 +9,9 @@ import {
   _toResponse,
   _toString,
   _toUint8Array,
-  _to,
 } from "./convert-maps";
+import { detectType } from "./detect";
+import type { Base64, DataType, DataTypeMap, DataTypeName } from "./types";
 
 /**
  * Convert from any value to any supported data type
@@ -23,7 +23,7 @@ export function convertTo<T extends DataTypeName>(
   toType: T,
   input: DataType,
   fromType?: DataTypeName,
-): any {
+): DataTypeMap<T> {
   const _map = _to[toType];
   if (!_map) {
     throw new Error(`Conversion to ${toType} is not supported.`);
@@ -76,6 +76,7 @@ export const toResponse = (input: DataType) =>
  * Convert from any value to [String][String]
  * @group String
  */
+// biome-ignore lint: function name expected
 export const toString = (input: DataType) =>
   _convertTo<string>(input, _toString);
 
@@ -96,7 +97,7 @@ export const toBase64 = (input: DataType) =>
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function _convertTo<T extends DataType>(
   input: DataType,
-  map: Record<DataTypeName, any /* (input: DataType) => T */>,
+  map: Record<DataTypeName, unknown /* (input: DataType) => T */>,
   fromType?: DataTypeName,
 ) {
   const typeName = fromType || detectType(input);
@@ -104,5 +105,6 @@ function _convertTo<T extends DataType>(
   if (converter === undefined) {
     throw new Error(`Conversion from ${typeName} is not supported.`);
   }
+  // @ts-ignore
   return converter(input);
 }

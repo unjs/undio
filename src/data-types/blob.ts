@@ -5,7 +5,7 @@ import { _base64Encode, assertType } from "./_utils";
  * Test if input is an instance of [Blob][Blob] and return `true` or `false`.
  * @group Blob
  */
-export function isBlob(input: any): input is Blob {
+export function isBlob(input: unknown): input is Blob {
   return input instanceof Blob;
 }
 

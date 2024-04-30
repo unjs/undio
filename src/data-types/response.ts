@@ -5,7 +5,7 @@ import { _base64Encode, assertType } from "./_utils";
  * Test if input is an instance of [Response][Response] and return `true` or `false`.
  * @group Response
  */
-export function isResponse(input: any): input is Response {
+export function isResponse(input: unknown): input is Response {
   return input instanceof Response;
 }
 

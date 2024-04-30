@@ -5,7 +5,7 @@ import { _base64Encode, assertType } from "./_utils";
  * Test if input is an instance of [Number Array][Number Array] and return `true` or `false`.
  * @group NumberArray
  */
-export function isNumberArray(input: any): input is number[] {
+export function isNumberArray(input: unknown): input is number[] {
   return (
     Array.isArray(input) && (input.length === 0 || typeof input[0] === "number")
   );

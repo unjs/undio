@@ -1,5 +1,4 @@
-import { expect, it, describe } from "vitest";
-import { detectType } from "../src/detect";
+import { describe, expect, it } from "vitest";
 import {
   convertTo,
   toArrayBuffer,
@@ -9,9 +8,11 @@ import {
   toNumberArray,
   toReadableStream,
   toResponse,
+  // biome-ignore lint: function name expected
   toString,
   toUint8Array,
 } from "../src/convert";
+import { detectType } from "../src/detect";
 import type { DataType, DataTypeName } from "../src/types";
 
 const fixtures: Record<DataTypeName, DataType[]> = {

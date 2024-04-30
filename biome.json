@@ -3,6 +3,9 @@
   "formatter": {
     "indentStyle": "space"
   },
+  "files": {
+    "ignore": ["src/convert-maps.ts"]
+  },
   "javascript": {
     "formatter": {
       "arrowParentheses": "always"
