@@ -8,8 +8,7 @@ import {
   toNumberArray,
   toReadableStream,
   toResponse,
-  // biome-ignore lint: function name expected
-  toString,
+  toText,
   toUint8Array,
 } from "../src/convert";
 import { detectType } from "../src/detect";
@@ -23,7 +22,7 @@ const fixtures: Record<DataTypeName, DataType[]> = {
   NumberArray: [[]],
   ReadableStream: [new ReadableStream()],
   Response: [new Response()],
-  String: ["string"],
+  Text: ["this is a text string"],
   Uint8Array: [new Uint8Array()],
 };
 
@@ -34,7 +33,7 @@ const convertFunctions = {
   toNumberArray,
   toReadableStream,
   toResponse,
-  toString,
+  toText,
   toUint8Array,
   toBase64,
 };
@@ -60,7 +59,7 @@ describe("convertTo", () => {
         for (const input of fixtures[from]) {
           it(`should convert ${from} to ${to}`, async () => {
             const output = await convertTo(to, input);
-            expect(detectType(output)).toBe(to === "Base64" ? "String" : to);
+            expect(detectType(output)).toBe(to === "Base64" ? "Text" : to);
           });
         }
       });
@@ -75,7 +74,7 @@ describe("toType", () => {
         for (const input of fixtures[from]) {
           it(`should convert ${from} to ${to}`, async () => {
             const output = await convertFunctions[`to${to}`](input);
-            expect(detectType(output)).toBe(to === "Base64" ? "String" : to);
+            expect(detectType(output)).toBe(to === "Base64" ? "Text" : to);
           });
         }
       });

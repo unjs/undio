@@ -82,10 +82,10 @@ export async function readableStreamToNumberArray(
 }
 
 /**
- * Convert from [ReadableStream][ReadableStream] to [String][String]
+ * Convert from [ReadableStream][ReadableStream] to [Text][Text]
  * @group ReadableStream
  */
-export async function readableStreamToString(
+export async function readableStreamToText(
   readableStream: ReadableStream,
 ): Promise<string> {
   if (globalThis.Bun?.readableStreamToText) {

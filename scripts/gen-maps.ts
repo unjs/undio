@@ -8,7 +8,7 @@ const types = [
   "numberArray",
   "readableStream",
   "response",
-  "string",
+  "text",
   "uint8Array",
 ];
 

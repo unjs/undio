@@ -89,10 +89,10 @@ export function uint8ArrayToResponse(
 }
 
 /**
- * Convert from [Uint8Array][Uint8Array] to [String][String]
+ * Convert from [Uint8Array][Uint8Array] to [Text][Text]
  * @group Uint8Array
  */
-export function uint8ArrayToString(uint8Array: Uint8Array): string {
+export function uint8ArrayToText(uint8Array: Uint8Array): string {
   assertUint8Array(uint8Array);
   return new TextDecoder().decode(uint8Array);
 }

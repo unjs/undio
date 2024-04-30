@@ -6,7 +6,7 @@ export type DataTypeName =
   | "NumberArray"
   | "ReadableStream"
   | "Response"
-  | "String"
+  | "Text"
   | "Uint8Array";
 
 export type DataType =
@@ -28,7 +28,7 @@ export type _DataTypeMap = {
   NumberArray: number[];
   ReadableStream: ReadableStream;
   Response: Response;
-  String: string;
+  Text: string;
   Uint8Array: Uint8Array;
 };
 export type DataTypeMap<T extends DataTypeName> = _DataTypeMap[T];

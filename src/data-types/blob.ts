@@ -63,10 +63,10 @@ export function blobToResponse(blob: Blob, init?: ResponseInit): Response {
 }
 
 /**
- * Convert from [Blob][Blob] to [String][String]
+ * Convert from [Blob][Blob] to [Text][Text]
  * @group Blob
  */
-export function blobToString(blob: Blob): Promise<string> {
+export function blobToText(blob: Blob): Promise<string> {
   assertBlob(blob);
   return blob.text();
 }

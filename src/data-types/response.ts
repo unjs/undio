@@ -68,10 +68,10 @@ export function responseToReadableStream(response: Response): ReadableStream {
 }
 
 /**
- * Convert from [Response][Response] to [String][String]
+ * Convert from [Response][Response] to [Text][Text]
  * @group Response
  */
-export function responseToString(response: Response): Promise<string> {
+export function responseToText(response: Response): Promise<string> {
   assertResponse(response);
   return response.text();
 }

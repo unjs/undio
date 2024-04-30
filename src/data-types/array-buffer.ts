@@ -77,10 +77,10 @@ export function arrayBufferToResponse(
 }
 
 /**
- * Convert from [ArrayBuffer][ArrayBuffer] to [String][String]
+ * Convert from [ArrayBuffer][ArrayBuffer] to [Text][Text]
  * @group ArrayBuffer
  */
-export function arrayBufferToString(arrayBuffer: ArrayBuffer): string {
+export function arrayBufferToText(arrayBuffer: ArrayBuffer): string {
   assertArrayBuffer(arrayBuffer);
   return new TextDecoder().decode(arrayBuffer);
 }

@@ -76,10 +76,10 @@ export function numberArrayToResponse(
 }
 
 /**
- * Convert from [Number Array][Number Array] to [String][String]
+ * Convert from [Number Array][Number Array] to [Text][Text]
  * @group NumberArray
  */
-export function numberArrayToString(numberArray: number[]): string {
+export function numberArrayToText(numberArray: number[]): string {
   assertNumberArray(numberArray);
   return new TextDecoder().decode(new Uint8Array(numberArray));
 }

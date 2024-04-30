@@ -28,7 +28,7 @@ export function isBase64(
 }
 
 /**
- * Assert that input is an instance of [String][String] and matches the [Base64][Base64] pattern or throw a `TypeError`.
+ * Assert that input is an instance of [Text][Text] and matches the [Base64][Base64] pattern or throw a `TypeError`.
  * @group Base64
  */
 export const assertBase64 = (input: unknown, opts?: Base64Options) =>
@@ -36,11 +36,11 @@ export const assertBase64 = (input: unknown, opts?: Base64Options) =>
   assertType("Base64", input, (val) => isBase64(val, opts));
 
 /**
- * Convert from [Base64][Base64] to [String][String]
+ * Convert from [Base64][Base64] to [Text][Text]
  * @param encoding - The encoding to use. Default is `utf8`.
  * @group Base64
  */
-export function base64ToString(
+export function base64ToText(
   string: Base64,
   opts?: Base64Options & { encoding?: "utf8" },
 ): string {

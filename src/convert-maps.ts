@@ -7,7 +7,7 @@ import {
   numberArrayToArrayBuffer,
   readableStreamToArrayBuffer,
   responseToArrayBuffer,
-  stringToArrayBuffer,
+  textToArrayBuffer,
   uint8ArrayToArrayBuffer,
   assertBase64,
   arrayBufferToBase64,
@@ -16,7 +16,7 @@ import {
   numberArrayToBase64,
   readableStreamToBase64,
   responseToBase64,
-  stringToBase64,
+  textToBase64,
   uint8ArrayToBase64,
   assertBlob,
   arrayBufferToBlob,
@@ -25,7 +25,7 @@ import {
   numberArrayToBlob,
   readableStreamToBlob,
   responseToBlob,
-  stringToBlob,
+  textToBlob,
   uint8ArrayToBlob,
   assertDataView,
   arrayBufferToDataView,
@@ -34,7 +34,7 @@ import {
   numberArrayToDataView,
   readableStreamToDataView,
   responseToDataView,
-  stringToDataView,
+  textToDataView,
   uint8ArrayToDataView,
   assertNumberArray,
   arrayBufferToNumberArray,
@@ -43,7 +43,7 @@ import {
   dataViewToNumberArray,
   readableStreamToNumberArray,
   responseToNumberArray,
-  stringToNumberArray,
+  textToNumberArray,
   uint8ArrayToNumberArray,
   assertReadableStream,
   arrayBufferToReadableStream,
@@ -52,7 +52,7 @@ import {
   dataViewToReadableStream,
   numberArrayToReadableStream,
   responseToReadableStream,
-  stringToReadableStream,
+  textToReadableStream,
   uint8ArrayToReadableStream,
   assertResponse,
   arrayBufferToResponse,
@@ -61,17 +61,17 @@ import {
   dataViewToResponse,
   numberArrayToResponse,
   readableStreamToResponse,
-  stringToResponse,
+  textToResponse,
   uint8ArrayToResponse,
-  assertString,
-  arrayBufferToString,
-  base64ToString,
-  blobToString,
-  dataViewToString,
-  numberArrayToString,
-  readableStreamToString,
-  responseToString,
-  uint8ArrayToString,
+  assertText,
+  arrayBufferToText,
+  base64ToText,
+  blobToText,
+  dataViewToText,
+  numberArrayToText,
+  readableStreamToText,
+  responseToText,
+  uint8ArrayToText,
   assertUint8Array,
   arrayBufferToUint8Array,
   base64ToUint8Array,
@@ -80,7 +80,7 @@ import {
   numberArrayToUint8Array,
   readableStreamToUint8Array,
   responseToUint8Array,
-  stringToUint8Array,
+  textToUint8Array,
 } from "./data-types";
 
 export const _toArrayBuffer = {
@@ -91,7 +91,7 @@ export const _toArrayBuffer = {
   NumberArray: numberArrayToArrayBuffer,
   ReadableStream: readableStreamToArrayBuffer,
   Response: responseToArrayBuffer,
-  String: stringToArrayBuffer,
+  Text: textToArrayBuffer,
   Uint8Array: uint8ArrayToArrayBuffer,
 } as const;
 
@@ -103,7 +103,7 @@ export const _toBase64 = {
   NumberArray: numberArrayToBase64,
   ReadableStream: readableStreamToBase64,
   Response: responseToBase64,
-  String: stringToBase64,
+  Text: textToBase64,
   Uint8Array: uint8ArrayToBase64,
 } as const;
 
@@ -115,7 +115,7 @@ export const _toBlob = {
   NumberArray: numberArrayToBlob,
   ReadableStream: readableStreamToBlob,
   Response: responseToBlob,
-  String: stringToBlob,
+  Text: textToBlob,
   Uint8Array: uint8ArrayToBlob,
 } as const;
 
@@ -127,7 +127,7 @@ export const _toDataView = {
   NumberArray: numberArrayToDataView,
   ReadableStream: readableStreamToDataView,
   Response: responseToDataView,
-  String: stringToDataView,
+  Text: textToDataView,
   Uint8Array: uint8ArrayToDataView,
 } as const;
 
@@ -139,7 +139,7 @@ export const _toNumberArray = {
   NumberArray: (input: unknown) => (assertNumberArray(input), input),
   ReadableStream: readableStreamToNumberArray,
   Response: responseToNumberArray,
-  String: stringToNumberArray,
+  Text: textToNumberArray,
   Uint8Array: uint8ArrayToNumberArray,
 } as const;
 
@@ -151,7 +151,7 @@ export const _toReadableStream = {
   NumberArray: numberArrayToReadableStream,
   ReadableStream: (input: unknown) => (assertReadableStream(input), input),
   Response: responseToReadableStream,
-  String: stringToReadableStream,
+  Text: textToReadableStream,
   Uint8Array: uint8ArrayToReadableStream,
 } as const;
 
@@ -163,20 +163,20 @@ export const _toResponse = {
   NumberArray: numberArrayToResponse,
   ReadableStream: readableStreamToResponse,
   Response: (input: unknown) => (assertResponse(input), input),
-  String: stringToResponse,
+  Text: textToResponse,
   Uint8Array: uint8ArrayToResponse,
 } as const;
 
-export const _toString = {
-  ArrayBuffer: arrayBufferToString,
-  Base64: base64ToString,
-  Blob: blobToString,
-  DataView: dataViewToString,
-  NumberArray: numberArrayToString,
-  ReadableStream: readableStreamToString,
-  Response: responseToString,
-  String: (input: unknown) => (assertString(input), input),
-  Uint8Array: uint8ArrayToString,
+export const _toText = {
+  ArrayBuffer: arrayBufferToText,
+  Base64: base64ToText,
+  Blob: blobToText,
+  DataView: dataViewToText,
+  NumberArray: numberArrayToText,
+  ReadableStream: readableStreamToText,
+  Response: responseToText,
+  Text: (input: unknown) => (assertText(input), input),
+  Uint8Array: uint8ArrayToText,
 } as const;
 
 export const _toUint8Array = {
@@ -187,7 +187,7 @@ export const _toUint8Array = {
   NumberArray: numberArrayToUint8Array,
   ReadableStream: readableStreamToUint8Array,
   Response: responseToUint8Array,
-  String: stringToUint8Array,
+  Text: textToUint8Array,
   Uint8Array: (input: unknown) => (assertUint8Array(input), input),
 } as const;
 
@@ -199,6 +199,6 @@ export const _to = {
   NumberArray: _toNumberArray,
   ReadableStream: _toReadableStream,
   Response: _toResponse,
-  String: _toString,
+  Text: _toText,
   Uint8Array: _toUint8Array,
 } as const;

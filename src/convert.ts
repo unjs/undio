@@ -7,7 +7,7 @@ import {
   _toNumberArray,
   _toReadableStream,
   _toResponse,
-  _toString,
+  _toText,
   _toUint8Array,
 } from "./convert-maps";
 import { detectType } from "./detect";
@@ -73,12 +73,10 @@ export const toResponse = (input: DataType) =>
   _convertTo<ReadableStream>(input, _toResponse);
 
 /**
- * Convert from any value to [String][String]
+ * Convert from any value to [Text][Text]
  * @group String
  */
-// biome-ignore lint: function name expected
-export const toString = (input: DataType) =>
-  _convertTo<string>(input, _toString);
+export const toText = (input: DataType) => _convertTo<string>(input, _toText);
 
 /**
  * Convert from any value to [Uint8Array][Uint8Array]

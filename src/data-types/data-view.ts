@@ -62,10 +62,10 @@ export function dataViewToReadableStream(
 }
 
 /**
- * Convert from [DataView][DataView] to [String][String]
+ * Convert from [DataView][DataView] to [Text][Text]
  * @group DataView
  */
-export function dataViewToString(dataView: DataView): string {
+export function dataViewToText(dataView: DataView): string {
   assertDataView(dataView);
   return new TextDecoder().decode(dataView);
 }

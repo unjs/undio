@@ -28,7 +28,7 @@
 - [Number Array][Number Array]
 - [ReadableStream][ReadableStream]
 - [Response][Response]
-- [String][String]
+- [Text][Text]
 - [Uint8Array][Uint8Array]
 
 ## Usage
@@ -87,10 +87,10 @@ Undio automatically detects the input type and uses the proper method to convert
 **Example:**
 
 ```ts
-import { detectType, toString, toReadableStream } from "undio";
+import { detectType, toText, toReadableStream } from "undio";
 
 // Convert any supported type (auto-detected)
-const string = await toString(value);
+const string = await toText(value);
 const stream = await toReadableStream(value);
 
 // "ArrayBuffer" | "Blob"| "DataView" | "NumberArray" | "ReadableStream" | "String" | "Uint8Array";
@@ -157,9 +157,9 @@ Convert from [ArrayBuffer][ArrayBuffer] to [ReadableStream][ReadableStream]
 
 Convert from [ArrayBuffer][ArrayBuffer] to [Response][Response]
 
-### `arrayBufferToString(arrayBuffer)`
+### `arrayBufferToText(arrayBuffer)`
 
-Convert from [ArrayBuffer][ArrayBuffer] to [String][String]
+Convert from [ArrayBuffer][ArrayBuffer] to [Text][Text]
 
 ### `arrayBufferToUint8Array(arrayBuffer)`
 
@@ -181,7 +181,7 @@ Convert from any value to [ArrayBuffer][ArrayBuffer]
 
 ### `assertBase64(input, opts?)`
 
-Assert that input is an instance of [String][String] and matches the [Base64][Base64] pattern or throw a `TypeError`.
+Assert that input is an instance of [Text][Text] and matches the [Base64][Base64] pattern or throw a `TypeError`.
 
 ### `base64ToArrayBuffer(string, base64Options?)`
 
@@ -207,9 +207,9 @@ Convert from [Base64][Base64] to [ReadableStream][ReadableStream]
 
 Convert from [Base64][Base64] to [Response][Response]
 
-### `base64ToString(string, opts?)`
+### `base64ToText(string, opts?)`
 
-Convert from [Base64][Base64] to [String][String]
+Convert from [Base64][Base64] to [Text][Text]
 
 ### `base64ToUint8Array(string, base64Options?)`
 
@@ -253,9 +253,9 @@ Convert from [Blob][Blob] to [ReadableStream][ReadableStream]
 
 Convert from [Blob][Blob] to [Response][Response]
 
-### `blobToString(blob)`
+### `blobToText(blob)`
 
-Convert from [Blob][Blob] to [String][String]
+Convert from [Blob][Blob] to [Text][Text]
 
 ### `blobToUint8Array(blob)`
 
@@ -299,9 +299,9 @@ Convert from [DataView][DataView] to [ReadableStream][ReadableStream]
 
 Convert from [DataView][DataView] to [Response][Response]
 
-### `dataViewToString(dataView)`
+### `dataViewToText(dataView)`
 
-Convert from [DataView][DataView] to [String][String]
+Convert from [DataView][DataView] to [Text][Text]
 
 ### `dataViewToUint8Array(dataView)`
 
@@ -345,9 +345,9 @@ Convert from [Number Array][Number Array] to [DataView][DataView]
 
 Convert from [Number Array][Number Array] to [ReadableStream][ReadableStream]
 
-### `numberArrayToString(numberArray)`
+### `numberArrayToText(numberArray)`
 
-Convert from [Number Array][Number Array] to [String][String]
+Convert from [Number Array][Number Array] to [Text][Text]
 
 ### `numberArrayToUint8Array(numberArray)`
 
@@ -387,9 +387,9 @@ Convert from [ReadableStream][ReadableStream] to [DataView][DataView]
 
 Convert from [ReadableStream][ReadableStream] to [Number Array][Number Array]
 
-### `readableStreamToString(readableStream)`
+### `readableStreamToText(readableStream)`
 
-Convert from [ReadableStream][ReadableStream] to [String][String]
+Convert from [ReadableStream][ReadableStream] to [Text][Text]
 
 ### `readableStreamToUint8Array(readableStream)`
 
@@ -437,9 +437,9 @@ Convert from [Response][Response] to [Number Array][Number Array]
 
 Convert from [Response][Response] to [ReadableStream]ReadableStream]
 
-### `responseToString(response)`
+### `responseToText(response)`
 
-Convert from [Response][Response] to [String][String]
+Convert from [Response][Response] to [Text][Text]
 
 ### `responseToUint8Array(response)`
 
@@ -447,41 +447,47 @@ Convert from [Response][Response] to [Uint8Array][Uint8Array]
 
 ## String
 
-### `assertString(input)`
+### `toText(input)`
 
-Assert that input is an instance of [String][String] or throw a `TypeError`.
+Convert from any value to [Text][Text]
 
-### `isString(input)`
+## Text
 
-Test if input is an instance of [String][String] and return `true` or `false`.
+### `assertText(input)`
 
-### `stringToArrayBuffer(string)`
+Assert that input is an instance of [Text][Text] or throw a `TypeError`.
 
-Convert from [string][string] to [ArrayBuffer][ArrayBuffer]
+### `isText(input)`
 
-### `stringToBase64(string, opts?)`
+Test if input is an instance of [Text][Text] and return `true` or `false`.
 
-Convert from [string][string] to [Base64][Base64]
+### `textToArrayBuffer(string)`
 
-### `stringToBlob(string, options?)`
+Convert from [Text][Text] to [ArrayBuffer][ArrayBuffer]
 
-Convert from [string][string] to [Blob][Blob]
+### `textToBase64(string, opts?)`
 
-### `stringToDataView(string)`
+Convert from [Text][Text] to [Base64][Base64]
 
-Convert from [string][string] to [DataView][DataView]
+### `textToBlob(string, options?)`
 
-### `stringToNumberArray(string)`
+Convert from [Text][Text] to [Blob][Blob]
 
-Convert from [string][string] to [Number Array][Number Array]
+### `textToDataView(string)`
 
-### `stringToReadableStream(string)`
+Convert from [Text][Text] to [DataView][DataView]
 
-Convert from [string][string] to [ReadableStream][ReadableStream]
+### `textToNumberArray(string)`
 
-### `stringToUint8Array(string)`
+Convert from [Text][Text] to [Number Array][Number Array]
 
-Convert from [string][string] to [Uint8Array][Uint8Array]
+### `textToReadableStream(string)`
+
+Convert from [Text][Text] to [ReadableStream][ReadableStream]
+
+### `textToUint8Array(string)`
+
+Convert from [Text][Text] to [Uint8Array][Uint8Array]
 
 ## Uint8 Array
 
@@ -525,9 +531,9 @@ Convert from [Uint8Array][Uint8Array] to [ReadableStream][ReadableStream]
 
 Convert from [Uint8Array][Uint8Array] to [Response][Response]
 
-### `uint8ArrayToString(uint8Array)`
+### `uint8ArrayToText(uint8Array)`
 
-Convert from [Uint8Array][Uint8Array] to [String][String]
+Convert from [Uint8Array][Uint8Array] to [Text][Text]
 
 ### `convertTo(toType, input, fromType?)`
 
@@ -543,7 +549,7 @@ Convert from [Number Array][Number Array] to [Response][Response]
 
 Convert from [ReadableStream][ReadableStream] to [Response][Response]
 
-### `stringToResponse(string, init?)`
+### `textToResponse(string, init?)`
 
 <!-- /automd -->
 
