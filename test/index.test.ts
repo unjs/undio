@@ -1,3 +1,4 @@
+import { Readable } from "node:stream";
 import { describe, expect, it } from "vitest";
 import {
   convertTo,
@@ -29,6 +30,12 @@ const fixtures: Record<DataTypeName, () => DataType> = {
   Response: () => new Response(fixtureText),
   Text: () => fixtureText,
   Uint8Array: () => new Uint8Array(fixtureByes),
+  NodeStream: () => {
+    const s = new Readable();
+    s.push(fixtureText);
+    s.push(null); // eslint-disable-line unicorn/no-null
+    return s;
+  },
 };
 
 const typeNames = Object.keys(fixtures) as DataTypeName[];
@@ -61,6 +68,7 @@ describe("detectType", () => {
 describe("convertTo", () => {
   for (const from of typeNames) {
     for (const to of typeNames) {
+      if (to === "NodeStream") continue;
       describe(`${from} to ${to}`, () => {
         const input = fixtures[from]();
         it(`should convert ${from} to ${to}`, async () => {
@@ -75,6 +83,7 @@ describe("convertTo", () => {
 describe("toType", () => {
   for (const from of typeNames) {
     for (const to of typeNames) {
+      if (to === "NodeStream") continue;
       describe(`${from} to ${to}`, () => {
         const input = fixtures[from]();
         it(`should convert ${from} to ${to}`, async () => {
@@ -103,6 +112,7 @@ it("not supported", () => {
 describe("Base64", async () => {
   const base64Example = await convertTo("Base64", new Uint8Array([0, 1, 2, 3]));
   for (const to of typeNames) {
+    if (to === "NodeStream") continue;
     describe(`Base64 to ${to}`, () => {
       it(`should convert Base64 to ${to}`, async () => {
         const encodedTo = await convertTo(to, base64Example, "Base64");

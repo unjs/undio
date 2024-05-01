@@ -27,6 +27,7 @@
 - [DataView][DataView]
 - [Number Array][Number Array]
 - [ReadableStream][ReadableStream]
+- [NodeStream][NodeStream]
 - [Response][Response]
 - [Text][Text]
 - [Uint8Array][Uint8Array]
@@ -315,6 +316,52 @@ Test if input is an instance of [DataView][DataView] and return `true` or `false
 
 Convert from any value to [DataView][DataView]
 
+## Node Stream
+
+### `assertNodeStream(input)`
+
+Assert that input is an instance of [NodeStream][NodeStream] or throw a `TypeError`.
+
+### `isNodeStream(input)`
+
+Test if input is an instance of [NodeStream][NodeStream] and return `true` or `false`.
+
+### `nodeStreamToArrayBuffer(input)`
+
+Convert from [NodeStream][NodeStream] to [ArrayBuffer][ArrayBuffer]
+
+### `nodeStreamToBase64(input, base64Options?)`
+
+Convert from [NodeStream][NodeStream] to [Base64][Base64]
+
+### `nodeStreamToBlob(input, options?)`
+
+Convert from [NodeStream][NodeStream] to [Blob][Blob]
+
+### `nodeStreamToDataView(input)`
+
+Convert from [NodeStream][NodeStream] to [DataView][DataView]
+
+### `nodeStreamToNumberArray(input)`
+
+Convert from [NodeStream][NodeStream] to [Number Array][Number Array]
+
+### `nodeStreamToReadableStream(input)`
+
+Convert from [NodeStream][NodeStream] to [ReadableStream][ReadableStream]
+
+### `nodeStreamToResponse(input, init?)`
+
+Convert from [NodeStream][NodeStream] to [Response][Response]
+
+### `nodeStreamToText(input)`
+
+Convert from [NodeStream][NodeStream] to [Text][Text]
+
+### `nodeStreamToUint8Array(input)`
+
+Convert from [NodeStream][NodeStream] to [Uint8Array][Uint8Array]
+
 ## Number Array
 
 ### `assertNumberArray(input)`
@@ -599,3 +646,4 @@ _🤖 auto updated with [automd](https://automd.unjs.io)_
 [Response]: https://developer.mozilla.org/en-US/docs/Web/API/Response
 [Text]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 [Uint8Array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array
+[NodeStream]: https://nodejs.org/api/stream.html#readable-streams

@@ -1,8 +1,11 @@
+import type { Readable as NodeStream } from "node:stream";
+
 export type DataTypeName =
   | "ArrayBuffer"
   | "Base64"
   | "Blob"
   | "DataView"
+  | "NodeStream"
   | "NumberArray"
   | "ReadableStream"
   | "Response"
@@ -14,6 +17,7 @@ export type DataType =
   | Base64
   | Blob
   | DataView
+  | NodeStream
   | number[]
   | ReadableStream
   | Response
@@ -25,6 +29,7 @@ export type _DataTypeMap = {
   Base64: Base64;
   Blob: Blob;
   DataView: DataView;
+  NodeStream: NodeStream;
   NumberArray: number[];
   ReadableStream: ReadableStream;
   Response: Response;
@@ -34,4 +39,5 @@ export type _DataTypeMap = {
 export type DataTypeMap<T extends DataTypeName> = _DataTypeMap[T];
 
 export type Base64 = string;
+
 export type Base64Options = { urlSafe?: boolean };

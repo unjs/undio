@@ -5,6 +5,7 @@ const types = [
   "base64",
   "blob",
   "dataView",
+  "nodeStream",
   "numberArray",
   "readableStream",
   "response",
@@ -16,6 +17,9 @@ const importLines: string[] = [];
 const code: string[] = [];
 
 for (const to of types) {
+  if (to === "nodeStream") {
+    continue;
+  }
   const toAssertName = `assert${upperFirst(to)}`;
   importLines.push(toAssertName);
   code.push(`export const _to${upperFirst(to)} = {`);
@@ -42,7 +46,10 @@ import {
 
 ${code.join("\n")}
 export const _to = {
-  ${types.map((t) => `${upperFirst(t)}: _to${upperFirst(t)},`).join("\n  ")}\n} as const;
+  ${types
+    .filter((t) => t !== "nodeStream")
+    .map((t) => `${upperFirst(t)}: _to${upperFirst(t)},`)
+    .join("\n  ")}\n} as const;
 `;
 
 writeFileSync(

@@ -2,6 +2,7 @@ export * from "./array-buffer";
 export * from "./base64";
 export * from "./blob";
 export * from "./data-view";
+export * from "./node-stream";
 export * from "./number-array";
 export * from "./readable-stream";
 export * from "./response";

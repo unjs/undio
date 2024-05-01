@@ -19,7 +19,7 @@ import type { Base64, DataType, DataTypeMap, DataTypeName } from "./types";
  * @param input - The input value
  * @param fromType - The source data type (optional)
  */
-export function convertTo<T extends DataTypeName>(
+export function convertTo<T extends Exclude<DataTypeName, "NodeStream">>(
   toType: T,
   input: DataType,
   fromType?: DataTypeName,
