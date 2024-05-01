@@ -21,7 +21,8 @@ const fixtureByes = new TextEncoder().encode(fixtureText);
 
 const fixtures: Record<DataTypeName, () => DataType> = {
   ArrayBuffer: () => fixtureByes.buffer,
-  Base64: () => btoa(String.fromCodePoint(...fixtureByes)),
+  Base64: () =>
+    `data:text/plain;base64,${btoa(String.fromCodePoint(...fixtureByes))}`,
   Blob: () => new Blob([fixtureByes]),
   DataView: () => new DataView(fixtureByes.buffer),
   NumberArray: () => [...fixtureByes],
@@ -57,9 +58,7 @@ describe("detectType", () => {
     describe(typeName, () => {
       const input = fixtures[typeName]();
       it(`should detect ${typeName} from ${input}`, () => {
-        expect(detectType(input)).toBe(
-          typeName === "Base64" ? "Text" : typeName,
-        );
+        expect(detectType(input)).toBe(typeName);
       });
     });
   }
@@ -73,7 +72,7 @@ describe("convertTo", () => {
         const input = fixtures[from]();
         it(`should convert ${from} to ${to}`, async () => {
           const output = await convertTo(to, input);
-          expect(detectType(output)).toBe(to === "Base64" ? "Text" : to);
+          expect(detectType(output)).toBe(to);
         });
       });
     }
@@ -88,7 +87,7 @@ describe("toType", () => {
         const input = fixtures[from]();
         it(`should convert ${from} to ${to}`, async () => {
           const output = await convertFunctions[`to${to}`](input);
-          expect(detectType(output)).toBe(to === "Base64" ? "Text" : to);
+          expect(detectType(output)).toBe(to);
         });
       });
     }
