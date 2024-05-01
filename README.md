@@ -182,7 +182,7 @@ Convert from any value to [ArrayBuffer][ArrayBuffer]
 
 ### `assertBase64(input, opts?)`
 
-Assert that input is an instance of [Text][Text] and matches the [Base64][Base64] pattern or throw a `TypeError`.
+Assert if input matches the [Base64][Base64] data URL (data:[<mediatype>][;base64],<data>) or throw a `TypeError`.
 
 ### `base64ToArrayBuffer(string, base64Options?)`
 
@@ -216,9 +216,9 @@ Convert from [Base64][Base64] to [Text][Text]
 
 Convert from [Base64][Base64] to [Uint8Array][Uint8Array]
 
-### `isBase64(input, base64Options?)`
+### `isBase64DataURL(input)`
 
-Test if input is string and matches the [Base64][Base64] pattern and return `true` or `false`.
+Test if input matches the [Base64][Base64] data URL (data:[<mediatype>][;base64],<data>) and return `true` or `false`.
 
 ### `toBase64(input)`
 

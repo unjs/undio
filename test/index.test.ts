@@ -22,7 +22,7 @@ const fixtureByes = new TextEncoder().encode(fixtureText);
 const fixtures: Record<DataTypeName, () => DataType> = {
   ArrayBuffer: () => fixtureByes.buffer,
   Base64: () =>
-    "data:text/plain;base64," + btoa(String.fromCodePoint(...fixtureByes)),
+    `data:text/plain;base64,${btoa(String.fromCodePoint(...fixtureByes))}`,
   Blob: () => new Blob([fixtureByes]),
   DataView: () => new DataView(fixtureByes.buffer),
   NumberArray: () => [...fixtureByes],
