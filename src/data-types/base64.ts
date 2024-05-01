@@ -40,15 +40,8 @@ export const assertBase64 = (input: unknown, opts?: Base64Options) =>
  * @param encoding - The encoding to use. Default is `utf8`.
  * @group Base64
  */
-export function base64ToText(
-  string: Base64,
-  opts?: Base64Options & { encoding?: "utf8" },
-): string {
-  if (opts?.encoding === "utf8") {
-    return new TextDecoder().decode(base64ToUint8Array(string, opts));
-  }
-  assertBase64(string, opts);
-  return globalThis.atob(opts?.urlSafe ? _decodeURLSafe(string) : string);
+export function base64ToText(string: Base64, opts?: Base64Options): string {
+  return new TextDecoder().decode(base64ToUint8Array(string, opts));
 }
 
 /**

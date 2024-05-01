@@ -86,12 +86,7 @@ export function textToUint8Array(string: string): Uint8Array {
  * @param encoding - The encoding to use. Default is `utf8`.
  * @group Text
  */
-export function textToBase64(
-  string: string,
-  opts?: Base64Options & { encoding?: "utf8" },
-): Base64 {
+export function textToBase64(string: string, opts?: Base64Options): Base64 {
   assertText(string);
-  return opts?.encoding === "utf8"
-    ? _base64Encode(new TextEncoder().encode(string), opts)
-    : _base64Encode(string, opts);
+  return _base64Encode(new TextEncoder().encode(string), opts);
 }

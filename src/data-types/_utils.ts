@@ -13,12 +13,10 @@ export function assertType<T>(
 }
 
 export function _base64Encode(
-  data: Uint8Array | string,
+  data: Uint8Array,
   base64Options?: Base64Options,
 ): Base64 {
-  let encoded = btoa(
-    typeof data === "string" ? data : String.fromCodePoint(...data),
-  );
+  let encoded = btoa(String.fromCodePoint(...data));
   if (base64Options?.urlSafe) {
     encoded = encoded
       .replace(/\+/g, "-")
