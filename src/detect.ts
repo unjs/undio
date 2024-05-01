@@ -2,6 +2,7 @@ import {
   isArrayBuffer,
   isBlob,
   isDataView,
+  isNodeStream,
   isNumberArray,
   isReadableStream,
   isResponse,
@@ -12,14 +13,18 @@ import {
 import type { DataType, DataTypeName } from "./types";
 
 const detectors: [DataTypeName, (input: unknown) => boolean][] = [
+  //Instanceof checkers
+  ["Uint8Array", isUint8Array],
   ["ArrayBuffer", isArrayBuffer],
   ["Blob", isBlob],
   ["DataView", isDataView],
-  ["NumberArray", isNumberArray],
   ["ReadableStream", isReadableStream],
   ["Response", isResponse],
+  // Typeof checkers
   ["Text", isText],
-  ["Uint8Array", isUint8Array],
+  // More checkers
+  ["NodeStream", isNodeStream],
+  ["NumberArray", isNumberArray],
 ];
 
 export function detectType(input: DataType): DataTypeName {
