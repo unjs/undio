@@ -597,5 +597,5 @@ _🤖 auto updated with [automd](https://automd.unjs.io)_
 [Number Array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 [ReadableStream]: https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream
 [Response]: https://developer.mozilla.org/en-US/docs/Web/API/Response
-[String]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+[Text]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 [Uint8Array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array
