@@ -23,7 +23,7 @@ const fixtures: Record<DataTypeName, () => DataType> = {
   Base64: () => btoa(String.fromCodePoint(...fixtureByes)),
   Blob: () => new Blob([fixtureByes]),
   DataView: () => new DataView(fixtureByes.buffer),
-  NumberArray: () => Array.from(fixtureByes),
+  NumberArray: () => [...fixtureByes],
   ReadableStream: () =>
     new Response(fixtureText).body as ReadableStream<Uint8Array>,
   Response: () => new Response(fixtureText),

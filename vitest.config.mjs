@@ -4,7 +4,7 @@ export default defineConfig({
   test: {
     typecheck: { enabled: true },
     coverage: {
-      exclude: ["scripts"]
+      exclude: ["scripts"],
     },
   },
 });
