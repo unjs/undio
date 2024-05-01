@@ -12,16 +12,13 @@ export function assertType<T>(
   }
 }
 
-export function _base64Encode(
-  data: Uint8Array,
-  base64Options?: Base64Options,
-): Base64 {
+export function _base64Encode(data: Uint8Array, opts?: Base64Options): Base64 {
   let encoded = btoa(String.fromCodePoint(...data));
-  if (base64Options?.urlSafe) {
+  if (opts?.urlSafe) {
     encoded = encoded
       .replace(/\+/g, "-")
       .replace(/\//g, "_")
       .replace(/=+$/, "");
   }
-  return encoded;
+  return opts?.dataURL === false ? encoded : `data:;base64,${encoded}`;
 }

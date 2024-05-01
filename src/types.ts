@@ -40,4 +40,4 @@ export type DataTypeMap<T extends DataTypeName> = _DataTypeMap[T];
 
 export type Base64 = string;
 
-export type Base64Options = { urlSafe?: boolean };
+export type Base64Options = { urlSafe?: boolean; dataURL?: boolean };

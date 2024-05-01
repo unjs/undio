@@ -1,5 +1,6 @@
 import {
   isArrayBuffer,
+  isBase64DataURL,
   isBlob,
   isDataView,
   isNodeStream,
@@ -20,11 +21,11 @@ const detectors: [DataTypeName, (input: unknown) => boolean][] = [
   ["DataView", isDataView],
   ["ReadableStream", isReadableStream],
   ["Response", isResponse],
-  // Typeof checkers
-  ["Text", isText],
   // More checkers
   ["NodeStream", isNodeStream],
   ["NumberArray", isNumberArray],
+  ["Base64", isBase64DataURL],
+  ["Text", isText],
 ];
 
 export function detectType(input: DataType): DataTypeName {
