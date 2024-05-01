@@ -20,5 +20,7 @@ export function _base64Encode(data: Uint8Array, opts?: Base64Options): Base64 {
       .replace(/\//g, "_")
       .replace(/=+$/, "");
   }
-  return opts?.dataURL === false ? encoded : `data:;base64,${encoded}`;
+  return opts?.dataURL === false
+    ? encoded
+    : `data:${opts?.type || ""};base64,${encoded}`;
 }
