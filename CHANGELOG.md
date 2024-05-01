@@ -1,6 +1,43 @@
 # Changelog
 
 
+## v0.2.0
+
+[compare changes](https://github.com/unjs/undio/compare/v0.1.1...v0.2.0)
+
+### 🚀 Enhancements
+
+- Support converting from node readable stream ([#14](https://github.com/unjs/undio/pull/14))
+- **base64:** ⚠️  Support `data:` url first ([e327558](https://github.com/unjs/undio/commit/e327558))
+
+### 🩹 Fixes
+
+- **base64:** Always use utf8 safe encoding and decoding ([8771f99](https://github.com/unjs/undio/commit/8771f99))
+
+### 💅 Refactors
+
+- ⚠️  Rename `String` type to `Text` ([764f03b](https://github.com/unjs/undio/commit/764f03b))
+
+### 🏡 Chore
+
+- Apply automated updates ([5d16ae3](https://github.com/unjs/undio/commit/5d16ae3))
+- Apply biome lint ([271389e](https://github.com/unjs/undio/commit/271389e))
+- Update readme ([f5264c6](https://github.com/unjs/undio/commit/f5264c6))
+- Apply automated updates ([6e76c34](https://github.com/unjs/undio/commit/6e76c34))
+
+### ✅ Tests
+
+- Increase coverage ([3ca00cf](https://github.com/unjs/undio/commit/3ca00cf))
+
+#### ⚠️ Breaking Changes
+
+- **base64:** ⚠️  Support `data:` url first ([e327558](https://github.com/unjs/undio/commit/e327558))
+- ⚠️  Rename `String` type to `Text` ([764f03b](https://github.com/unjs/undio/commit/764f03b))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v0.1.1
 
 [compare changes](https://github.com/unjs/undio/compare/v0.1.0...v0.1.1)
