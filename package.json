@@ -30,19 +30,19 @@
     "test:types": "tsc --noEmit --skipLibCheck"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.7.1",
-    "@types/bun": "^1.1.1",
-    "@types/node": "^20.12.7",
-    "@vitest/coverage-v8": "^1.5.3",
+    "@biomejs/biome": "^1.7.3",
+    "@types/bun": "^1.1.2",
+    "@types/node": "^20.12.11",
+    "@vitest/coverage-v8": "^1.6.0",
     "automd": "^0.3.7",
     "changelogen": "^0.5.5",
-    "eslint": "^9.1.1",
-    "eslint-config-unjs": "0.3.0-rc.7",
+    "eslint": "^9.2.0",
+    "eslint-config-unjs": "0.3.1",
     "jiti": "^1.21.0",
     "prettier": "^3.2.5",
     "typescript": "^5.4.5",
     "unbuild": "^2.0.0",
-    "vitest": "^1.5.3"
+    "vitest": "^1.6.0"
   },
-  "packageManager": "pnpm@9.0.6"
+  "packageManager": "pnpm@9.1.1"
 }
