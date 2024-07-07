@@ -32,9 +32,9 @@
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
     "@types/bun": "^1.1.6",
-    "@types/node": "^20.14.9",
+    "@types/node": "^20.14.10",
     "@vitest/coverage-v8": "^1.6.0",
-    "automd": "^0.3.7",
+    "automd": "^0.3.8",
     "changelogen": "^0.5.5",
     "eslint": "^9.6.0",
     "eslint-config-unjs": "0.3.2",
@@ -44,5 +44,5 @@
     "unbuild": "^2.0.0",
     "vitest": "^1.6.0"
   },
-  "packageManager": "pnpm@9.4.0"
+  "packageManager": "pnpm@9.5.0"
 }
