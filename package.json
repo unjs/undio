@@ -33,7 +33,7 @@
     "@biomejs/biome": "^1.8.3",
     "@types/bun": "^1.1.6",
     "@types/node": "^20.14.14",
-    "@vitest/coverage-v8": "^1.6.0",
+    "@vitest/coverage-v8": "^2.0.5",
     "automd": "^0.3.8",
     "changelogen": "^0.5.5",
     "eslint": "^9.8.0",
@@ -42,7 +42,7 @@
     "prettier": "^3.3.3",
     "typescript": "^5.5.4",
     "unbuild": "^2.0.0",
-    "vitest": "^1.6.0"
+    "vitest": "^2.0.5"
   },
   "packageManager": "pnpm@9.6.0"
 }
