@@ -86,7 +86,7 @@ export function blobToUint8Array(blob: Blob): Promise<Uint8Array> {
  */
 export async function blobToBase64(
   blob: Blob,
-  base64Options: Base64Options,
+  base64Options?: Base64Options,
 ): Promise<Base64> {
   // assertBlob(blob);
   return _base64Encode(await blobToUint8Array(blob), base64Options);
