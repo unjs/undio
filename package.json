@@ -16,7 +16,9 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "pnpm gen-maps && unbuild",
     "dev": "vitest dev",
@@ -30,19 +32,19 @@
     "test:types": "tsc --noEmit --skipLibCheck"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.2",
-    "@types/bun": "^1.1.10",
-    "@types/node": "^20.16.5",
-    "@vitest/coverage-v8": "^1.6.0",
-    "automd": "^0.3.8",
-    "changelogen": "^0.5.7",
-    "eslint": "^9.11.0",
-    "eslint-config-unjs": "0.3.2",
-    "jiti": "^1.21.6",
-    "prettier": "^3.3.3",
-    "typescript": "^5.6.2",
-    "unbuild": "^2.0.0",
-    "vitest": "^1.6.0"
+    "@biomejs/biome": "^1.9.4",
+    "@types/bun": "^1.2.9",
+    "@types/node": "^22.14.1",
+    "@vitest/coverage-v8": "^3.1.1",
+    "automd": "^0.4.0",
+    "changelogen": "^0.6.1",
+    "eslint": "^9.24.0",
+    "eslint-config-unjs": "^0.4.2",
+    "jiti": "^2.4.2",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3",
+    "unbuild": "^3.5.0",
+    "vitest": "^3.1.1"
   },
-  "packageManager": "pnpm@9.11.0"
+  "packageManager": "pnpm@10.8.0"
 }
