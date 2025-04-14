@@ -103,7 +103,7 @@ export function arrayBufferToUint8Array(
  */
 export function arrayBufferToBase64(
   arrayBuffer: ArrayBufferLike,
-  base64Options: Base64Options,
+  base64Options?: Base64Options,
 ): Base64 {
   assertArrayBuffer(arrayBuffer);
   return _base64Encode(new Uint8Array(arrayBuffer), base64Options);

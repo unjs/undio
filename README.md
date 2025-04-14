@@ -137,7 +137,7 @@ assertArrayBuffer(value); // Throws an error if value is not ArrayBuffer
 
 ## Array Buffer
 
-### `arrayBufferToBase64(arrayBuffer, base64Options)`
+### `arrayBufferToBase64(arrayBuffer, base64Options?)`
 
 Convert from [ArrayBuffer][ArrayBuffer] to [Base64][Base64]
 
@@ -237,7 +237,7 @@ Assert that input is an instance of [Blob][Blob] or throw a `TypeError`.
 
 Convert from [Blob][Blob] to [ArrayBuffer][ArrayBuffer]
 
-### `blobToBase64(blob, base64Options)`
+### `blobToBase64(blob, base64Options?)`
 
 Convert from [Blob][Blob] to [Base64][Base64]
 
