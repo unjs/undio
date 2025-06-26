@@ -33,8 +33,7 @@ const fixtures: Record<DataTypeName, () => DataType> = {
   Uint8Array: () => new Uint8Array(fixtureByes),
   NodeStream: () => {
     const s = new Readable();
-    s.push(fixtureText);
-    s.push(null); // eslint-disable-line unicorn/no-null
+    s.push(fixtureText, null); // eslint-disable-line unicorn/no-null
     return s;
   },
 };
