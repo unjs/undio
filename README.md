@@ -49,13 +49,13 @@ npm install undio
 yarn add undio
 
 # pnpm
-pnpm install undio
+pnpm add undio
 
 # bun
 bun install undio
 
 # deno
-deno install undio
+deno install npm:undio
 ```
 
 <!-- /automd -->
@@ -76,7 +76,7 @@ import {} from "undio";
 const {} = require("undio");
 ```
 
-**CDN** (Deno, Bun and Browsers)
+**CDN** (Deno and Browsers)
 
 ```js
 import {} from "https://esm.sh/undio";
