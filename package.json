@@ -30,7 +30,7 @@
     "test:types": "tsc --noEmit --skipLibCheck"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
+    "@biomejs/biome": "^2.5.11",
     "@types/bun": "^1.2.9",
     "@types/node": "^22.14.1",
     "@vitest/coverage-v8": "^3.1.1",
