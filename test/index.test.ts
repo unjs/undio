@@ -12,6 +12,7 @@ import {
   toResponse,
   toText,
   toUint8Array,
+  uint8ArrayToBase64,
   uint8ArrayToText,
 } from "../src";
 import type { DataType, DataTypeName } from "../src/types";
@@ -120,4 +121,14 @@ describe("Base64", async () => {
       });
     });
   }
+
+  it("should encode large Uint8Array (>65535 bytes) without stack overflow", async () => {
+    // String.fromCodePoint(...data) crashes when data.length exceeds the JS
+    // engine's max argument count. Use a 200 kB array to reliably reproduce.
+    const large = Uint8Array.from({ length: 200_000 }, (_, i) => i % 256);
+    const encoded = uint8ArrayToBase64(large, { dataURL: false });
+    expect(encoded.length).toBe(Math.ceil(200_000 / 3) * 4);
+    const decoded = await convertTo("Uint8Array", encoded, "Base64");
+    expect(decoded).toEqual(large);
+  });
 });
