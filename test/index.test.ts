@@ -122,13 +122,13 @@ describe("Base64", async () => {
     });
   }
 
-  it("should encode large Uint8Array (>65535 bytes) without stack overflow", () => {
+  it("should encode large Uint8Array (>65535 bytes) without stack overflow", async () => {
     // String.fromCodePoint(...data) crashes when data.length exceeds the JS
     // engine's max argument count. Use a 200 kB array to reliably reproduce.
-    const large = new Uint8Array(200_000).fill(42);
-    expect(() => uint8ArrayToBase64(large, { dataURL: false })).not.toThrow();
+    const large = Uint8Array.from({ length: 200_000 }, (_, i) => i % 256);
     const encoded = uint8ArrayToBase64(large, { dataURL: false });
-    // btoa of 200 000 bytes of 0x2A ('*') → predictable base64 output length
     expect(encoded.length).toBe(Math.ceil(200_000 / 3) * 4);
+    const decoded = await convertTo("Uint8Array", encoded, "Base64");
+    expect(decoded).toEqual(large);
   });
 });

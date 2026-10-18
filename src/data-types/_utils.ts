@@ -15,8 +15,9 @@ export function assertType<T>(
 export function _base64Encode(data: Uint8Array, opts?: Base64Options): Base64 {
   // Process in chunks to avoid "Maximum call stack size exceeded" when data is
   // large (e.g. PDFs, images). Spreading a huge array as function arguments
-  // exhausts the JS engine's call-stack argument limit (~65 536 args).
-  const CHUNK_SIZE = 0xff_ff;
+  // exhausts the JS engine's call-stack argument limit, which varies by engine
+  // and available stack space.
+  const CHUNK_SIZE = 0x80_00;
   let str = "";
   for (let i = 0; i < data.length; i += CHUNK_SIZE) {
     str += String.fromCodePoint(...data.subarray(i, i + CHUNK_SIZE));
