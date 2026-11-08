@@ -1,6 +1,7 @@
 import { Readable } from "node:stream";
 import { describe, expect, it } from "vitest";
 import {
+  base64ToBlob,
   convertTo,
   detectType,
   toArrayBuffer,
@@ -130,5 +131,16 @@ describe("Base64", async () => {
     expect(encoded.length).toBe(Math.ceil(200_000 / 3) * 4);
     const decoded = await convertTo("Uint8Array", encoded, "Base64");
     expect(decoded).toEqual(large);
+  });
+
+  it("should round-trip a large URL-safe Base64 data URL", async () => {
+    const bytes = Uint8Array.from({ length: 200_000 }, (_, i) => i % 256);
+    const encoded = uint8ArrayToBase64(bytes, {
+      type: "text/plain",
+      urlSafe: true,
+    });
+    const decoded = base64ToBlob(encoded, { urlSafe: true });
+    expect(decoded.type).toBe("text/plain");
+    expect(new Uint8Array(await decoded.arrayBuffer())).toEqual(bytes);
   });
 });
