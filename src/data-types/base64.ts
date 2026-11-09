@@ -1,7 +1,7 @@
 import type { Base64, Base64Options } from "../types";
 import { assertType } from "./_utils";
 
-const base64DataRegex = /^data:([\w-]+\/[\w-]+)?;base64,/;
+const base64DataRegex = /^data:([\w-]+\/[\w+-]+)?;base64,/;
 
 /**
  * Test if input matches the [Base64][Base64] data URL (data:[<mediatype>][;base64],<data>) and return `true` or `false`.
@@ -124,13 +124,17 @@ function _base64Decode(input: string, opts?: Base64Options) {
     throw new TypeError("base64 input must be a string");
   }
 
-  let encoded = opts?.urlSafe ? _decodeURLSafe(input) : input;
+  let encoded = input;
   let type: string | undefined;
 
   const dataURLMatch = encoded.match(base64DataRegex);
   if (dataURLMatch) {
     type = dataURLMatch[1];
     encoded = encoded.slice(dataURLMatch[0].length);
+  }
+
+  if (opts?.urlSafe) {
+    encoded = _decodeURLSafe(encoded);
   }
 
   const bytes = Uint8Array.from(
