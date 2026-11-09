@@ -1,7 +1,7 @@
 import type { Base64, Base64Options } from "../types";
 import { assertType } from "./_utils";
 
-const base64DataRegex = /^data:([\w-]+\/[\w-]+)?;base64,/;
+const base64DataRegex = /^data:([\w-]+\/[\w+-]+)?;base64,/;
 
 /**
  * Test if input matches the [Base64][Base64] data URL (data:[<mediatype>][;base64],<data>) and return `true` or `false`.

@@ -133,14 +133,14 @@ describe("Base64", async () => {
     expect(decoded).toEqual(large);
   });
 
-  it("should round-trip a large URL-safe Base64 data URL", async () => {
+  it("should round-trip a large URL-safe Base64 data URL with a MIME suffix", async () => {
     const bytes = Uint8Array.from({ length: 200_000 }, (_, i) => i % 256);
     const encoded = uint8ArrayToBase64(bytes, {
-      type: "text/plain",
+      type: "image/svg+xml",
       urlSafe: true,
     });
     const decoded = base64ToBlob(encoded, { urlSafe: true });
-    expect(decoded.type).toBe("text/plain");
+    expect(decoded.type).toBe("image/svg+xml");
     expect(new Uint8Array(await decoded.arrayBuffer())).toEqual(bytes);
   });
 });
